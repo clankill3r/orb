@@ -1,20 +1,21 @@
-package  orb_examples.datastructure;
+package  orb_examples;
 
 
-import orb.crust.geom.V2;
-import orb.crust.util.datastructure.C_CellGrid;
-import orb.outer_core.util.datastructure.OC_CellGrid;
-import org.problessing.Problessing;
+import orb._crust.geom.V2;
+import orb._crust.util.datastructure.C_CellGrid;
+import processing.core.PApplet;
+import orb.___outer_core.util.datastructure.OC_CellGrid;
+import static orb._crust._CSSColors.*;
 
 import java.util.ArrayList;
 
 /**
  * Created by doekewartena on 8/30/15.
  */
-public class CellGrid extends Problessing {
+public class CellGrid extends PApplet {
 
-    public static  void main(String[] args) {
-        Problessing.main("util.datastructure.CellGrid", args);
+    public static void main(String[] args) {
+        PApplet.main(CellGrid.class, args);
     }
 
 

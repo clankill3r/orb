@@ -1,20 +1,16 @@
-package  orb_examples.datastructure;
+package orb_examples;
 
 import controlP5.ControlP5;
-
-import orb.crust.geom.V3;
-import orb.crust.util.datastructure.C_OctreePoint;
-import orb.outer_core.util.datastructure.OC_Octree;
-import org.problessing.Problessing;
+import orb._crust.geom.V3;
+import orb._crust.util.datastructure.C_OctreePoint;
+import orb.___outer_core.util.datastructure.OC_Octree;
 import peasy.PeasyCam;
+import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PShape;
-
 import java.util.ArrayList;
-
-import static orb.crust.C_Common.getMax;
-import static orb.crust.C_Common.getMin;
-
+import static orb._crust.C_Common.*;
+import static orb._crust._CSSColors.*;
 
 /**
  * Created by doekewartena on 8/23/15.
@@ -28,10 +24,10 @@ todo, disable cam on cp5
 
 
 
-public class OctreeTreePoint extends Problessing {
+public class OctreeTreePoint extends PApplet {
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.OctreeTreePoint", args);
+        PApplet.main(OctreeTreePoint.class, args);
     }
 
     PeasyCam cam;
@@ -71,7 +67,7 @@ public class OctreeTreePoint extends Problessing {
         cam.setMinimumDistance(50);
         cam.setMaximumDistance(5000);
 
-        String dataPath = "/Users/doekewartena/IdeaProjects/onos/onos_p5/projects/onos/data/";
+        String dataPath = "";//"/Users/doekewartena/IdeaProjects/onos/onos_p5/projects/onos/data/";
         String file1 = "trex_vertexes.tsv";
         String file2 = "trex2_vertexes.tsv";
 

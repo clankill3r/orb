@@ -1,31 +1,31 @@
-package  orb_examples.datastructure;
+package  orb_examples;
 
 
-import orb.crust.util.datastructure.C_QuadTree_AABB;
+import orb._crust.util.datastructure.C_QuadTree_AABB;
 import orb.____inner_core.geom._AABB_2D;
 import orb.____inner_core.geom._Line;
 import orb.____inner_core.util.datatstructure._Data;
 import orb.____inner_core.util.datatstructure._TreeSettings;
-import orb.outer_core.util.datastructure.OC_Data2DAABB_List;
-import orb.outer_core.util.datastructure.OC_QuadTree;
-import org.problessing.Problessing;
+import orb.___outer_core.util.datastructure.OC_Data2DAABB_List;
+import orb.___outer_core.util.datastructure.OC_QuadTree;
+import processing.core.PApplet;
 import processing.core.PGraphics;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static orb.____inner_core.IC_Math.distSq;
-
+import static orb.____inner_core.IC_Math.*;
+import static orb._crust._CSSColors.*;
 
 /**
  * Created by doekewartena on 8/23/15.
  */
 
 // this one is with lines for now but we should make it a more modular text example
-public class QuadTree_AABB extends Problessing {
+public class QuadTree_AABB extends PApplet {
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.QuadTree_AABB", args);
+        PApplet.main(QuadTree_AABB.class, args);
     }
 
     C_QuadTree_AABB<Line> quadTree;
@@ -64,6 +64,26 @@ public class QuadTree_AABB extends Problessing {
             @Override
             public _Data<Line, ? extends _Data> createDataInstance() {
                 return new OC_Data2DAABB_List<>(l -> l.x1, l -> l.y1, l -> l.x2, l -> l.y2, new ArrayList<>());
+            }
+
+            @Override
+            public int getMaxObjects() {
+                return 64;
+            }
+
+            @Override
+            public int getMaxLevels() {
+                return 16;
+            }
+
+            @Override
+            public void setMaxObjects(int max) {
+                assert false;
+            }
+
+            @Override
+            public void setMaxLevels(int max) {
+                assert false;
             }
         });
 

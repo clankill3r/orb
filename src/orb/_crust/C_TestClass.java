@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.crust;
+package orb._crust;
 
 import nl.doekewartena.orb.crust.wip._InstanceOf;
 import nl.doekewartena.orb.inner_core.util.datatstructure._Tree;

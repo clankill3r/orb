@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.compare.excluded;
+package orb.____inner_core.util.compare.excluded;
 
 /**
  * Created by doekewartena on 9/13/15.

@@ -1,4 +1,4 @@
-package util.datastructure;
+package orb_examples;
 
 
 import nl.doekewartena.orb.crust.util.datastructure.C_QuadTree_AABB;

@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.datatstructure.combinations;
+package orb.____inner_core.util.datatstructure.excluded.combinations;
 
 
 import nl.doekewartena.orb.inner_core.util.datatstructure._Query_3D;

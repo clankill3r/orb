@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core;
+package orb.inner_core;
 
 import nl.doekewartena.orb.inner_core.geom._Vec2;
 import nl.doekewartena.orb.inner_core.geom._Vec3;

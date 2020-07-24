@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.mantle.pathfinder;
+package orb.__mantle.pathfinder;
 
 /**
  * Created by doekewartena on 5/14/15.

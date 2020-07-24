@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.function;
+package orb.____inner_core.util.function;
 
 import java.util.Iterator;
 

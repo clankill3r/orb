@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.mantle.geom;
+package orb.__mantle.geom;
 
 import nl.doekewartena.orb.inner_core.geom._Vec2;
 

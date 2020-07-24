@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.geom;
+package orb.____inner_core.geom;
 
 
 //import nl.doekewartena.orb.inner_core.util.compare.excluded.IC_CompareXY;

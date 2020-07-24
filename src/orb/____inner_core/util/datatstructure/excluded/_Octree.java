@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.datatstructure.excluded;
+package orb.____inner_core.util.datatstructure.excluded;
 
 import nl.doekewartena.orb.inner_core.util.datatstructure._3D_Query;
 import nl.doekewartena.orb.inner_core.util.datatstructure._Tree3D;

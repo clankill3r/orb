@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.function;
+package orb.____inner_core.util.function;
 
 /**
  * Created by doekewartena on 5/24/15.

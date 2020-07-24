@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.outer_core.util.compare.excluded;
+package orb.___outer_core.util.compare.excluded;
 
 
 

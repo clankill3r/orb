@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.datatstructure;
+package orb.____inner_core.util.datatstructure;
 
 /**
  * Created by doekewartena on 9/12/15.

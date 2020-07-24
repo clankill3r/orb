@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core;
+package orb.inner_core;
 
 
 import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;

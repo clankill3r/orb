@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.function.unused;
+package orb.____inner_core.util.function.unused;
 
 import java.util.function.Consumer;
 

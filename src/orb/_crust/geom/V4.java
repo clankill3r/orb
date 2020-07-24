@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.crust.geom;
+package orb._crust.geom;
 
 import nl.doekewartena.orb.inner_core.geom._Vec4;
 

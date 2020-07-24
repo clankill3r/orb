@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.outer_core.util.compare.excluded;
+package orb.___outer_core.util.compare.excluded;
 
 
 import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;

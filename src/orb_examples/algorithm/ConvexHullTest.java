@@ -1,4 +1,4 @@
-package algorithm;
+package orb_examples.algorithm;
 
 
 import nl.doekewartena.orb.crust.C_Common;

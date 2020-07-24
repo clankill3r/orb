@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.crust.util.datastructure;
+package orb._crust.util.datastructure;
 
 import nl.doekewartena.orb.inner_core.geom._AABB_2D;
 import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_2D;

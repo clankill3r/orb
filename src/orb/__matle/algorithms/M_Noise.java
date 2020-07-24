@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.mantle.algorithms;
+package orb.__mantle.algorithms;
 
 /*Chinchbug
  *  mrl.nyu.edu/~perlin/paper445.pdf

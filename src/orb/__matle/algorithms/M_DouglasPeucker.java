@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.mantle.algorithms;
+package orb.__mantle.algorithms;
 
 import static java.lang.Math.sqrt;
 

@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.outer_core.util.compare;
+package orb.___outer_core.util.compare;
 
 import java.util.Comparator;
 

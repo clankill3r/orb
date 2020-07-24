@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.mantle.pathfinder;
+package orb.__mantle.pathfinder;
 
 
 import java.util.ArrayList;

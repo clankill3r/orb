@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.util.datatstructure;
+package orb.____inner_core.util.datatstructure;
 
 import nl.doekewartena.orb.inner_core.geom._AABB_3D;
 

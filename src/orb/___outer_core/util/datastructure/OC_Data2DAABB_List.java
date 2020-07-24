@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.outer_core.util.datastructure;
+package orb.___outer_core.util.datastructure;
 
 
 import nl.doekewartena.orb.inner_core.IC_Common;

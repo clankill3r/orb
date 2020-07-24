@@ -1,4 +1,4 @@
-package nl.doekewartena.orb.inner_core.geom;
+package orb.____inner_core.geom;
 
 /**
  * Created by doekewartena on 9/6/15.

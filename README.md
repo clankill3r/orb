@@ -1,6 +1,8 @@
 # orb
 Resuscitated old project in order to show how bad OOP can get
 
+Original project is from 2015.
+
 2020 changes,
 
 - shortened package structure for easier navigation
@@ -15,7 +17,7 @@ Resuscitated old project in order to show how bad OOP can get
 
 Dump from old TODO:
 
-
+```java
 import java.util.HashMap;
 
 class Dump {
@@ -50,9 +52,9 @@ class Dump {
     // ------------------------------------------
 
 }
+```
 
-
-
+```java
 class TODO_move {/*
     Zou er een regel zijn dar er geen helipad mag alse bepaalde restricties voldoen?
      */
@@ -93,8 +95,10 @@ class TODO_move {/*
     // ------------------------------------------
     // ------------------------------------------
 }
+```
 
 
+```java
 // ------------------------------------------
 class TODO_ONOS_CORE {
 
@@ -318,7 +322,10 @@ class TODO_ONOS_CORE {
 
 
 }
+```
 
+
+```java
 class TODO_ONOS_SHELL {
 
     // maybe the 2nd shell should only provide static methods and interfaces (or first)
@@ -327,9 +334,9 @@ class TODO_ONOS_SHELL {
 
 
 }
+```
 
-
-
+```java
 class TODO_processing {
     // ------------------------------------------
 
@@ -366,14 +373,12 @@ class TODO_processing {
     // ------------------------------------------
     // ------------------------------------------
 
-
-
 }
+```
 
 
-class UI {
 
-     /*
+
 Een node met een graphical weergave (zoals een graph) moet
 vervangen kunnen worden door een andere weergave.
 Stel je hebt een particle system. Dan zou het heel eenvoudig
@@ -447,11 +452,6 @@ een paar tools voor quick acces. Wat programming snippets. Clipboard view. etc.
 
 
 
-
-
- */
-
-
 }
 
 
@@ -472,10 +472,6 @@ een paar tools voor quick acces. Wat programming snippets. Clipboard view. etc.
 
 
 
-
- /*
-
-
 // packer:
 
 todo
@@ -487,7 +483,4 @@ todo
         can use it here?
 
         -Setting algorithms like first fit decreasing is more something for the shell?
-
-
-   */
 

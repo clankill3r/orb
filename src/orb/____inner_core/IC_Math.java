@@ -30,7 +30,7 @@ public class IC_Math<T> {
     }
 
     static public final float sqrt(float x) {
-        return (float) sqrt(x);
+        return (float) Math.sqrt(x);
     }
 
     static public float abs(float x) {

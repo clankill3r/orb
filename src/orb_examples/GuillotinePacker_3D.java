@@ -1,11 +1,12 @@
-package  orb_examples.datastructure;
+package orb_examples;
 
-
-import orb.crust.util.datastructure.C_BinPackerGuillotine_3D;
+import orb._crust.util.datastructure.C_BinPackerGuillotine_3D;
 import orb.____inner_core.geom._AABB_3D;
-import orb.outer_core.util.compare.OC_ComparatorStack;
-import org.problessing.Problessing;
+import orb.___outer_core.util.compare.OC_ComparatorStack;
 import peasy.PeasyCam;
+import processing.core.PApplet;
+
+import static orb._crust._CSSColors.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,10 +15,12 @@ import java.util.Comparator;
 /**
  * Created by doekewartena on 6/11/15.
  */
-public class GuillotinePacker_3D extends Problessing {
+public class GuillotinePacker_3D extends PApplet {
+
+    
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.GuillotinePacker_3D", args);
+        PApplet.main(GuillotinePacker_3D.class, args);
     }
 
     public void settings() {

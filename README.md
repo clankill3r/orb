@@ -7,12 +7,14 @@ Original project is from 2015.
 
 - shortened package structure for easier navigation
 - removed double stuff
-- 
+- String dataPath = "/Users/doekewartena/IdeaProjects/onos/onos_p5/projects/onos/data/";
 
 
 
 
+Examples to fix:
 
+- [ ] OctreeTreePoint
 
 
 

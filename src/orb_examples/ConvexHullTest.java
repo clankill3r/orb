@@ -1,11 +1,11 @@
 package orb_examples;
 
 
-import nl.doekewartena.orb.crust.C_Common;
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.geom._Triangle;
-import nl.doekewartena.orb.mantle.algorithms.M_ConvexHull;
-import nl.doekewartena.orb.mantle.algorithms.M_DouglasPeucker;
+import orb._crust.C_Common;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.geom._Triangle;
+import orb.__mantle.algorithms.M_ConvexHull;
+import orb.__mantle.algorithms.M_DouglasPeucker;
 import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
@@ -30,7 +30,7 @@ import java.util.Stack;
 public class ConvexHullTest extends PApplet {
 
     public static void main(String[] args) {
-        PApplet.main("util.algorithm.ConvexHullTest");
+        PApplet.main(ConvexHullTest.class, args);
     }
 
     ArrayList<PVector> vecs = new ArrayList<PVector>();
@@ -222,7 +222,7 @@ public class ConvexHullTest extends PApplet {
 
             float epsilon = map(mouseX, 0, width, 0, 500);
             // todo, move from inner core common
-            double[][] xyList = C_Common.xyListTo2DArray(
+            float[][] xyList = C_Common.xyListTo2DArray(
                     (v) -> {
                         return v.x;
                     },
@@ -235,7 +235,7 @@ public class ConvexHullTest extends PApplet {
             hullPG.ellipse((float)xyList[xyList.length-1][0], (float)xyList[xyList.length-1][1], 15, 15);
 
 
-            double[][] points = M_DouglasPeucker.douglasPeucker(xyList, epsilon);
+            float[][] points = M_DouglasPeucker.douglasPeucker(xyList, epsilon);
 
             //convexHull.setPreHullInterestPoints(hull2, 6);
             convexHull.setMagnets(points);

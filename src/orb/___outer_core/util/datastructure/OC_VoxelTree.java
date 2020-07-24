@@ -1,7 +1,7 @@
 package orb.___outer_core.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_3D;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Tree_3D;
 
 import java.util.Iterator;
 import java.util.List;
@@ -18,53 +18,53 @@ public class OC_VoxelTree <T, C extends OC_VoxelTree> implements _Tree_3D<T, C> 
     // this might be a horible way to structure a voxel tree anyway
 
     @Override
-    public C backFind(double x, double y, double z) {
+    public C backFind(float x, float y, float z) {
         return null;
     }
 
     @Override
-    public C backFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C backFind(float x, float y, float z, float x2, float y2, float z2) {
         return null;
     }
 
     @Override
-    public C forwardFind(double x, double y, double z) {
+    public C forwardFind(float x, float y, float z) {
         return null;
     }
 
     @Override
-    public C forwardFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C forwardFind(float x, float y, float z, float x2, float y2, float z2) {
         return null;
     }
 
 
     @Override
-    public double x1() {
+    public float x1() {
         return 0;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return 0;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return 0;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return 0;
     }
 
     @Override
-    public double z1() {
+    public float z1() {
         return 0;
     }
 
     @Override
-    public double z2() {
+    public float z2() {
         return 0;
     }
 
@@ -104,17 +104,17 @@ public class OC_VoxelTree <T, C extends OC_VoxelTree> implements _Tree_3D<T, C> 
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         return 0;
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         return 0;
     }
 
     @Override
-    public double getZ2(T t) {
+    public float getZ2(T t) {
         return 0;
     }
 
@@ -124,22 +124,22 @@ public class OC_VoxelTree <T, C extends OC_VoxelTree> implements _Tree_3D<T, C> 
     }
 
     @Override
-    public T query(double tx, double ty, double tz) {
+    public T query(float tx, float ty, float tz) {
         return null;
     }
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx, double ty, double tz) {
+    public C query(List<T> containing, List<T> intersecting, float tx, float ty, float tz) {
         return null;
     }
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+    public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
         return null;
     }
 
     @Override
-    public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ) {
+    public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ) {
         return null;
     }
 
@@ -174,22 +174,22 @@ public class OC_VoxelTree <T, C extends OC_VoxelTree> implements _Tree_3D<T, C> 
     }
 
     @Override
-    public C queryClosest(double x, double y, double z, IC_Common.BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, float z, IC_Common.BestMatch<T> bestMatch) {
         return null;
     }
 
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return 0;
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return 0;
     }
 
     @Override
-    public double getZ(T t) {
+    public float getZ(T t) {
         return 0;
     }
     // todo...

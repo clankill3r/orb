@@ -1,6 +1,6 @@
 package orb.____inner_core.util.datatstructure;
 
-import nl.doekewartena.orb.inner_core.util.function._Remove_T;
+import orb.____inner_core.util.function._Remove_T;
 
 /**
  * Created by doekewartena on 8/29/15.

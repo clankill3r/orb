@@ -1,10 +1,10 @@
 package orb._crust.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_Data3DPoint_List;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_OctreePoint;
+import orb.____inner_core.util.datatstructure._Data;
+import orb.____inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.function._GetFloat_T;
+import orb.___outer_core.util.datastructure.OC_Data3DPoint_List;
+import orb.___outer_core.util.datastructure.OC_OctreePoint;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class C_OctreePoint<T> extends OC_OctreePoint<T, C_OctreePoint<T>> implem
 //        super();
 //    }
 
-//    public OS_OctreePoint(_GetDoubleT<T> getX, _GetDoubleT<T> getY, _GetDoubleT<T> getZ) {
+//    public OS_OctreePoint(_GetFloatT<T> getX, _GetFloatT<T> getY, _GetFloatT<T> getZ) {
 //        super(() -> new Data3DPoint_List<>(getX, getY, getZ, new ArrayList<>()));
 //    }
 //
@@ -25,12 +25,12 @@ public class C_OctreePoint<T> extends OC_OctreePoint<T, C_OctreePoint<T>> implem
 //        super(settings);
 //    }
 
-    public C_OctreePoint(double x1, double y1, double z1, double x2, double y2, double z2, _TreeSettings<T> settings) {
+    public C_OctreePoint(float x1, float y1, float z1, float x2, float y2, float z2, _TreeSettings<T> settings) {
         super(x1, y1, z1, x2, y2, z2, settings);
     }
 
-    public C_OctreePoint(_GetDouble_T<T> getX, _GetDouble_T<T> getY, _GetDouble_T<T> getZ,
-                         double x1, double y1, double z1, double x2, double y2, double z2) {
+    public C_OctreePoint(_GetFloat_T<T> getX, _GetFloat_T<T> getY, _GetFloat_T<T> getZ,
+                         float x1, float y1, float z1, float x2, float y2, float z2) {
         //super(null, x1, y1, z1, x2, y2, z2, () -> new OC_Data3DPoint_List<>(getX, getY, getZ, new ArrayList<>()));
         super(null, x1, y1, z1, x2, y2, z2, new _TreeSettings<T>() {
 
@@ -65,7 +65,7 @@ public class C_OctreePoint<T> extends OC_OctreePoint<T, C_OctreePoint<T>> implem
         });
     }
 
-    protected C_OctreePoint(C_OctreePoint<T> parent, double x1, double y1, double z1, double x2, double y2, double z2, _TreeSettings<T> settings) {
+    protected C_OctreePoint(C_OctreePoint<T> parent, float x1, float y1, float z1, float x2, float y2, float z2, _TreeSettings<T> settings) {
         super(parent, x1, y1, z1, x2, y2, z2, settings);
     }
 

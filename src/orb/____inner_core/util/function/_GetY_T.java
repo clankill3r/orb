@@ -4,5 +4,5 @@ package orb.____inner_core.util.function;
  * Created by doekewartena on 9/11/15.
  */
 public interface _GetY_T<T> {
-    double getY(T t);
+    float getY(T t);
 }

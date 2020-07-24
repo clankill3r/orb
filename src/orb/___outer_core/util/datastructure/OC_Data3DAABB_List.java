@@ -1,9 +1,11 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_3D;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Data_3D;
+import orb.____inner_core.util.function._GetFloat_T;
+
+import static orb.____inner_core.IC_Math.*;
 
 import java.util.List;
 
@@ -14,11 +16,11 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
 
 
-    _GetDouble_T<T> getX, getY, getZ, getX2, getY2, getZ2;
+    _GetFloat_T<T> getX, getY, getZ, getX2, getY2, getZ2;
 
     List<T> items;
 
-    public OC_Data3DAABB_List(_GetDouble_T<T> getX, _GetDouble_T<T> getY, _GetDouble_T<T> getZ, _GetDouble_T<T> getX2, _GetDouble_T<T> getY2, _GetDouble_T<T> getZ2, List<T> list) {
+    public OC_Data3DAABB_List(_GetFloat_T<T> getX, _GetFloat_T<T> getY, _GetFloat_T<T> getZ, _GetFloat_T<T> getX2, _GetFloat_T<T> getY2, _GetFloat_T<T> getZ2, List<T> list) {
         //items = new ArrayList<>();
         this.getX = getX;
         this.getY = getY;
@@ -58,44 +60,44 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 //    }
 
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return getX.val(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return getY.val(t);
     }
 
     @Override
-    public double getZ(T t) {
+    public float getZ(T t) {
         return getZ.val(t);
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         return getX2.val(t);
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         return getY2.val(t);
     }
 
     @Override
-    public double getZ2(T t) {
+    public float getZ2(T t) {
         return getZ2.val(t);
     }
 
     @Override
-    public T query(double tx, double ty, double tz) {
+    public T query(float tx, float ty, float tz) {
         for (T t : items) {
-            double x = getX.val(t);
-            double y = getY.val(t);
-            double z = getY.val(t);
-            double x2 = getX2.val(t);
-            double y2 = getY2.val(t);
-            double z2 = getZ2.val(t);
+            float x = getX.val(t);
+            float y = getY.val(t);
+            float z = getY.val(t);
+            float x2 = getX2.val(t);
+            float y2 = getY2.val(t);
+            float z2 = getZ2.val(t);
 
             if (!(  tx > x2 ||
                     tx < x ||
@@ -112,18 +114,18 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query(List<T> containing, List<T> intersecting, double tx, double ty, double tz) {
+    public C query(List<T> containing, List<T> intersecting, float tx, float ty, float tz) {
 
         // like this?
         List<T> target = intersecting != null ? intersecting : containing;
 
         for (T t : items) {
-            double x = getX.val(t);
-            double y = getY.val(t);
-            double z = getZ.val(t);
-            double x2 = getX2.val(t);
-            double y2 = getY2.val(t);
-            double z2 = getZ2.val(t);
+            float x = getX.val(t);
+            float y = getY.val(t);
+            float z = getZ.val(t);
+            float x2 = getX2.val(t);
+            float y2 = getY2.val(t);
+            float z2 = getZ2.val(t);
 
             if (!(  tx > x2 ||
                     tx < x ||
@@ -139,7 +141,7 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+    public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
 
         final boolean checkContaining = containing != null;
         final boolean checkIntersecting = intersecting != null;
@@ -150,12 +152,12 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
             added = false;
 
-            double x1 = getX.val(t);
-            double y1 = getY.val(t);
-            double z1 = getZ.val(t);
-            double x2 = getX2.val(t);
-            double y2 = getY2.val(t);
-            double z2 = getZ2.val(t);
+            float x1 = getX.val(t);
+            float y1 = getY.val(t);
+            float z1 = getZ.val(t);
+            float x2 = getX2.val(t);
+            float y2 = getY2.val(t);
+            float z2 = getZ2.val(t);
 
             if (checkContaining) {
                 if (x1 > tx1 && x1 < tx2 &&
@@ -198,7 +200,7 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ) {
+    public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ) {
 
         if (items.isEmpty()) return (C) this;
 
@@ -215,18 +217,18 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
             added = false;
 
-            double x1 = getX.val(t);
-            double y1 = getY.val(t);
-            double z1 = getZ.val(t);
-            double x2 = getX2.val(t);
-            double y2 = getY2.val(t);
-            double z2 = getZ2.val(t);
+            float x1 = getX.val(t);
+            float y1 = getY.val(t);
+            float z1 = getZ.val(t);
+            float x2 = getX2.val(t);
+            float y2 = getY2.val(t);
+            float z2 = getZ2.val(t);
 
-            double furthestX = Math.abs(cx - x1) > Math.abs(cx-x2) ? x1 : x2;
-            double furthestY = Math.abs(cy - y1) > Math.abs(cy-y2) ? y1 : y2;
-            double furthestZ = Math.abs(cz - z1) > Math.abs(cz-z2) ? z1 : z2;
+            float furthestX = abs(cx - x1) > abs(cx-x2) ? x1 : x2;
+            float furthestY = abs(cy - y1) > abs(cy-y2) ? y1 : y2;
+            float furthestZ = abs(cz - z1) > abs(cz-z2) ? z1 : z2;
 
-            double dSqFurthest = (cx-furthestX)*(cx-furthestX) + (cy-furthestY)*(cy-furthestY) + (cz-furthestZ)*(cz-furthestZ);
+            float dSqFurthest = (cx-furthestX)*(cx-furthestX) + (cy-furthestY)*(cy-furthestY) + (cz-furthestZ)*(cz-furthestZ);
 
             if (checkContaining) {
 
@@ -240,11 +242,11 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
             }
             if (!added && checkIntersecting) {
 
-                double closestX = Math.max(Math.min(cx, x2), x1);
-                double closestY = Math.max(Math.min(cy, y2), y1);
-                double closestZ = Math.max(Math.min(cz, z2), z1);
+                float closestX = max(Math.min(cx, x2), x1);
+                float closestY = max(Math.min(cy, y2), y1);
+                float closestZ = max(Math.min(cz, z2), z1);
 
-                double dSqClosest = (cx-closestX)*(cx-closestX) + (cy-closestY)*(cy-closestY) + (cz-closestZ)*(cz-closestZ);
+                float dSqClosest = (cx-closestX)*(cx-closestX) + (cy-closestY)*(cy-closestY) + (cz-closestZ)*(cz-closestZ);
 
                 if (dSqClosest <= radiusSQ) {
                     intersecting.add(t);
@@ -299,7 +301,7 @@ public class OC_Data3DAABB_List<T, C extends OC_Data3DAABB_List> implements _Dat
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryClosest(double x, double y, double z, IC_Common.BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, float z, IC_Common.BestMatch<T> bestMatch) {
         IC_Common.getClosest(items, x, y, z, getX, getY, getZ, getX2, getY2, getZ2, bestMatch);
         return (C) this;
     }

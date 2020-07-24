@@ -1,7 +1,7 @@
 package orb._crust.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.geom._AABB_3D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_3D;
+import orb.____inner_core.geom._AABB_3D;
+import orb.____inner_core.util.datatstructure._Tree_3D;
 
 import java.util.ArrayList;
 

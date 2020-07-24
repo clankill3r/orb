@@ -1,8 +1,8 @@
 package orb._crust.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_Octree_AABB;
+import orb.____inner_core.util.datatstructure._TreeSettings;
+import orb.___outer_core.util.datastructure.OC_Octree_AABB;
 
 /**
  * Created by doekewartena on 8/19/15.
@@ -15,12 +15,12 @@ public class C_Octree_AABB<T> extends OC_Octree_AABB<T, C_Octree_AABB<T>> implem
     public boolean auto_scale = true;
     public boolean log = true;
 
-    public C_Octree_AABB(double x1,
-                         double y1,
-                         double z1,
-                         double x2,
-                         double y2,
-                         double z2,
+    public C_Octree_AABB(float x1,
+                         float y1,
+                         float z1,
+                         float x2,
+                         float y2,
+                         float z2,
                          _TreeSettings<T> settings) {
 
         super(null, x1, y1, z1, x2, y2, z2, settings);
@@ -31,12 +31,12 @@ public class C_Octree_AABB<T> extends OC_Octree_AABB<T, C_Octree_AABB<T>> implem
 
     // used in split
     protected C_Octree_AABB(C_Octree_AABB<T> parent,
-                            double x1,
-                            double y1,
-                            double z1,
-                            double x2,
-                            double y2,
-                            double z2,
+                            float x1,
+                            float y1,
+                            float z1,
+                            float x2,
+                            float y2,
+                            float z2,
                             _TreeSettings<T> settings) {
 
         super(parent, x1, y1, z1, x2, y2, z2, settings);
@@ -51,12 +51,12 @@ public class C_Octree_AABB<T> extends OC_Octree_AABB<T, C_Octree_AABB<T>> implem
     }
 
     @Override
-    public C_Octree_AABB<T> insert(T t, double x, double y, double z, double x2, double y2, double z2) {
+    public C_Octree_AABB<T> insert(T t, float x, float y, float z, float x2, float y2, float z2) {
         return insert(t, x, y, z, x2, y2, z2, 0);
     }
 
     @Override
-    public C_Octree_AABB<T> insert(T t, double _x, double _y, double _z, double _x2, double _y2, double _z2, int level) {
+    public C_Octree_AABB<T> insert(T t, float _x, float _y, float _z, float _x2, float _y2, float _z2, int level) {
 
         // shell rocks, we do this only once!
         if (_x > _x2) _x2 = (_x+_x2) - (_x=_x2); // cool swap :)

@@ -1,8 +1,8 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_3D;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Tree_3D;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
         //Iterable<C>
     {
 
-    public double x, y, z, w, h, d;
+    public float x, y, z, w, h, d;
 
     public boolean used;
 
@@ -43,7 +43,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
 
 
 
-    public OC_BinPackerGuillotine_3D(double x, double y, double z, double w, double h, double d) {
+    public OC_BinPackerGuillotine_3D(float x, float y, float z, float w, float h, float d) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -53,13 +53,13 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     }
 
 
-    public C newInstance(double x, double y, double z, double w, double h, double d) {
+    public C newInstance(float x, float y, float z, float w, float h, float d) {
         return (C) new OC_BinPackerGuillotine_3D(x, y, z, w, h, d);
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public void split(double w, double h, double d) {
+    public void split(float w, float h, float d) {
         used = true;
 //        right  = (C) new OC_GuillotinePacker_3D(x + w, y    , z  , this.w - w, h         , d);
 //        down   = (C) new OC_GuillotinePacker_3D(x    , y + h, z  , this.w    , this.h - h, d);
@@ -77,7 +77,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
-    public C find(double w, double h, double d) {
+    public C find(float w, float h, float d) {
 
         if (this.w < w || this.h < h || this.d < d) return null;
 
@@ -102,7 +102,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public C pack(double w, double h, double d) {
+    public C pack(float w, float h, float d) {
 
         C target = find(w, h, d);
 
@@ -115,7 +115,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public C pack(T t, double w, double h, double d) {
+    public C pack(T t, float w, float h, float d) {
 
         C where = pack(w, h, d);
         if (where != null) where.item = t;
@@ -154,32 +154,32 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     }
 
     @Override
-    public double x1() {
+    public float x1() {
         return x;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return y;
     }
 
     @Override
-    public double z1() {
+    public float z1() {
         return z;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return x+w;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return y+h;
     }
 
     @Override
-    public double z2() {
+    public float z2() {
         return z+d;
     }
 
@@ -187,7 +187,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     // todo
 
     @Override
-    public C backFind(double x, double y, double z) {
+    public C backFind(float x, float y, float z) {
         if (x2() > x || y2() > y || z2() > z) return null;
 
         if (contains_point(x, y, z)) return (C) this;
@@ -198,7 +198,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     }
 
     @Override
-    public C backFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C backFind(float x, float y, float z, float x2, float y2, float z2) {
         // todo
         // what will the purpose be of this method?
         System.out.println("todo, what about backFind aabb in OC_GuillotinePacker? ");
@@ -206,7 +206,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     }
 
     @Override
-    public C forwardFind(double x, double y, double z) {
+    public C forwardFind(float x, float y, float z) {
         if (hasChildren()) {
             if (right.contains_point(x, y, z)) return (C) right.forwardFind(x, y, z);
             if (down.contains_point(x, y, z)) return (C) down.forwardFind(x, y, z);
@@ -217,7 +217,7 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
     }
 
     @Override
-    public C forwardFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C forwardFind(float x, float y, float z, float x2, float y2, float z2) {
         // todo
         System.out.println("todo, what about forwardFind aabb in OC_GuillotinePacker? ");
         return null;
@@ -265,17 +265,17 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
         // todo:
 
         @Override
-        public double getX2(T t) {
+        public float getX2(T t) {
             return 0;
         }
 
         @Override
-        public double getY2(T t) {
+        public float getY2(T t) {
             return 0;
         }
 
         @Override
-        public double getZ2(T t) {
+        public float getZ2(T t) {
             return 0;
         }
 
@@ -285,22 +285,22 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
         }
 
         @Override
-        public T query(double tx, double ty, double tz) {
+        public T query(float tx, float ty, float tz) {
             return null;
         }
 
         @Override
-        public C query(List<T> containing, List<T> intersecting, double tx, double ty, double tz) {
+        public C query(List<T> containing, List<T> intersecting, float tx, float ty, float tz) {
             return null;
         }
 
         @Override
-        public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+        public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
             return null;
         }
 
         @Override
-        public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ) {
+        public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ) {
             return null;
         }
 
@@ -335,22 +335,22 @@ public class OC_BinPackerGuillotine_3D<T, C extends OC_BinPackerGuillotine_3D> /
         }
 
         @Override
-        public C queryClosest(double x, double y, double z, IC_Common.BestMatch<T> bestMatch) {
+        public C queryClosest(float x, float y, float z, IC_Common.BestMatch<T> bestMatch) {
             return null;
         }
 
         @Override
-        public double getX(T t) {
+        public float getX(T t) {
             return 0;
         }
 
         @Override
-        public double getY(T t) {
+        public float getY(T t) {
             return 0;
         }
 
         @Override
-        public double getZ(T t) {
+        public float getZ(T t) {
             return 0;
         }
 

@@ -5,27 +5,27 @@ package orb.____inner_core.geom;
  */
 public interface _Line {
 
-    double x1();
-    double y1();
-    double x2();
-    double y2();
+    float x1();
+    float y1();
+    float x2();
+    float y2();
 
-    default double minX() {
+    default float minX() {
         if (x1() <= x2()) return x1();
         return x2();
     }
 
-    default double minY() {
+    default float minY() {
         if (y1() <= y2()) return y1();
         return y2();
     }
 
-    default double maxX() {
+    default float maxX() {
         if (x1() > x2()) return x1();
         return x2();
     }
 
-    default double maxY() {
+    default float maxY() {
         if (y1() > y2()) return y1();
         return y2();
     }

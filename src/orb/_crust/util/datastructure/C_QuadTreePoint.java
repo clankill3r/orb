@@ -1,10 +1,10 @@
 package orb._crust.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_Data2DPoint_List;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_QuadTreePoint;
+import orb.____inner_core.util.datatstructure._Data;
+import orb.____inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.function._GetFloat_T;
+import orb.___outer_core.util.datastructure.OC_Data2DPoint_List;
+import orb.___outer_core.util.datastructure.OC_QuadTreePoint;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ public class C_QuadTreePoint<T> extends OC_QuadTreePoint<T, C_QuadTreePoint<T>> 
 
     // todo, order is not consequent
 
-//    public OS_QuadTreePoint(_GetDoubleT<T> getX, _GetDoubleT<T> getY) {
+//    public OS_QuadTreePoint(_GetFloatT<T> getX, _GetFloatT<T> getY) {
 //        super(() -> new Data2DPoint_List<>(getX, getY, new ArrayList<>()));
 //    }
 //
@@ -32,12 +32,12 @@ public class C_QuadTreePoint<T> extends OC_QuadTreePoint<T, C_QuadTreePoint<T>> 
 //        super(settings);
 //    }
 
-    public C_QuadTreePoint(double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    public C_QuadTreePoint(float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         super(null, x1, y1, x2, y2, settings);
     }
 
-    public C_QuadTreePoint(_GetDouble_T<T> getX, _GetDouble_T<T> getY,
-                           double x1, double y1, double x2, double y2) {
+    public C_QuadTreePoint(_GetFloat_T<T> getX, _GetFloat_T<T> getY,
+                           float x1, float y1, float x2, float y2) {
 
          //super(null, x1, y1, x2, y2, () -> new OC_Data2DPoint_List<>());
         super(null, x1, y1, x2, y2, new _TreeSettings<T>() {
@@ -73,7 +73,7 @@ public class C_QuadTreePoint<T> extends OC_QuadTreePoint<T, C_QuadTreePoint<T>> 
         });
     }
 
-    protected C_QuadTreePoint(C_QuadTreePoint<T> parent, double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    protected C_QuadTreePoint(C_QuadTreePoint<T> parent, float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         super(parent, x1, y1, x2, y2, settings);
     }
 

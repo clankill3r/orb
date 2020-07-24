@@ -1,12 +1,12 @@
-package orb.inner_core;
+package orb.____inner_core;
 
 
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
+import orb.____inner_core.util.function._GetFloat_T;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static nl.doekewartena.orb.inner_core.IC_Math.distSq;
+import static orb.____inner_core.IC_Math.distSq;
 
 
 /**
@@ -29,7 +29,7 @@ public class IC_Common {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public static final boolean allTheSame(double... numbers) {
+    public static final boolean allTheSame(float... numbers) {
 
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] != numbers[i - 1]) return false;
@@ -54,13 +54,13 @@ public class IC_Common {
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
     /*
-    public static <T> T getMax(List<T> items, GetDoubleT<T> getV) {
-        double m = -Double.MAX_VALUE;
+    public static <T> T getMax(List<T> items, GetFloatT<T> getV) {
+        float m = -Float.MAX_VALUE;
         T result = null;
         for (int i = 0; i < items.size(); i++) {
             T t = items.get(i);
             if (t != null) {
-                double v = getV.val(t);
+                float v = getV.val(t);
                 if (v > m) {
                     m = v;
                     result = t;
@@ -74,11 +74,11 @@ public class IC_Common {
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
     @SuppressWarnings("unchecked")
-    public static <T> void getMax(List<T> items, _GetDouble_T<T> getV, BestMatch bestMatch) {
+    public static <T> void getMax(List<T> items, _GetFloat_T<T> getV, BestMatch bestMatch) {
 
         for (T t : items) {
             if (t == null) continue;
-            double m = getV.val(t);
+            float m = getV.val(t);
             if (m > bestMatch.val) {
                 bestMatch.val = m;
                 bestMatch.item = t;
@@ -87,11 +87,11 @@ public class IC_Common {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void getMax(List<T> items, _GetDouble_T<T> getV, _GetDouble_T<T> getV2, BestMatch bestMatch) {
+    public static <T> void getMax(List<T> items, _GetFloat_T<T> getV, _GetFloat_T<T> getV2, BestMatch bestMatch) {
 
         for (T t : items) {
             if (t == null) continue;
-            double m = getV.val(t);
+            float m = getV.val(t);
             if (m > bestMatch.val) {
                 bestMatch.val = m;
                 bestMatch.item = t;
@@ -106,11 +106,11 @@ public class IC_Common {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public static <T> void getMin(List<T> items, _GetDouble_T<T> getV, BestMatch bestMatch) {
+    public static <T> void getMin(List<T> items, _GetFloat_T<T> getV, BestMatch bestMatch) {
 
         for (T t : items) {
             if (t == null) continue;
-            double m = getV.val(t);
+            float m = getV.val(t);
             if (m < bestMatch.val) {
                 bestMatch.val = m;
                 bestMatch.item = t;
@@ -119,11 +119,11 @@ public class IC_Common {
     }
 
 
-    public static <T> void getMin(List<T> items, _GetDouble_T<T> getV, _GetDouble_T<T> getV2, BestMatch bestMatch) {
+    public static <T> void getMin(List<T> items, _GetFloat_T<T> getV, _GetFloat_T<T> getV2, BestMatch bestMatch) {
 
         for (T t : items) {
             if (t == null) continue;
-            double m = getV.val(t);
+            float m = getV.val(t);
             if (m < bestMatch.val) {
                 bestMatch.val = m;
                 bestMatch.item = t;
@@ -138,13 +138,13 @@ public class IC_Common {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public static <T> T getMin(T[] arr, _GetDouble_T<T> getV) {
+    public static <T> T getMin(T[] arr, _GetFloat_T<T> getV) {
 
-        double min = Double.POSITIVE_INFINITY;
+        float min = Float.POSITIVE_INFINITY;
         T res = null;
 
         for (T t : arr) {
-            double v = getV.val(t);
+            float v = getV.val(t);
             if (v < min) {
                 min = v;
                 res = t;
@@ -159,13 +159,13 @@ public class IC_Common {
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
-    public static <T> T getMax(T[] arr, _GetDouble_T<T> getV) {
+    public static <T> T getMax(T[] arr, _GetFloat_T<T> getV) {
 
-        double max = Double.NEGATIVE_INFINITY;
+        float max = Float.NEGATIVE_INFINITY;
         T res = null;
 
         for (T t : arr) {
-            double v = getV.val(t);
+            float v = getV.val(t);
             if (v > max) {
                 max = v;
                 res = t;
@@ -179,11 +179,11 @@ public class IC_Common {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public static <T> void getClosest(List<T> items, double x, double y, _GetDouble_T<T> getX, _GetDouble_T<T> getY, BestMatch bestMatch) {
+    public static <T> void getClosest(List<T> items, float x, float y, _GetFloat_T<T> getX, _GetFloat_T<T> getY, BestMatch bestMatch) {
 
         for (T t : items) {
 
-            double dist = distSq(x, y, getX.val(t), getY.val(t));
+            float dist = distSq(x, y, getX.val(t), getY.val(t));
 
             if (dist < bestMatch.val) {
                 bestMatch.val = dist;
@@ -193,11 +193,11 @@ public class IC_Common {
         }
     }
 
-    public static <T> void getClosest(List<T> items, double x, double y, _GetDouble_T<T> getX, _GetDouble_T<T> getY, _GetDouble_T<T> getX2, _GetDouble_T<T> getY2, BestMatch bestMatch) {
+    public static <T> void getClosest(List<T> items, float x, float y, _GetFloat_T<T> getX, _GetFloat_T<T> getY, _GetFloat_T<T> getX2, _GetFloat_T<T> getY2, BestMatch bestMatch) {
 
         for (T t : items) {
 
-            double dist = distSq(x, y, getX.val(t), getY.val(t));
+            float dist = distSq(x, y, getX.val(t), getY.val(t));
 
             if (dist < bestMatch.val) {
                 bestMatch.val = dist;
@@ -217,11 +217,11 @@ public class IC_Common {
     }
 
 
-    public static <T> void getClosest(List<T> items, double x, double y, double z, _GetDouble_T<T> getX, _GetDouble_T<T> getY, _GetDouble_T<T> getZ, BestMatch bestMatch) {
+    public static <T> void getClosest(List<T> items, float x, float y, float z, _GetFloat_T<T> getX, _GetFloat_T<T> getY, _GetFloat_T<T> getZ, BestMatch bestMatch) {
 
         for (T t : items) {
 
-            double dist = distSq(x, y, z, getX.val(t), getY.val(t), getZ.val(t));
+            float dist = distSq(x, y, z, getX.val(t), getY.val(t), getZ.val(t));
 
             if (dist < bestMatch.val) {
                 bestMatch.val = dist;
@@ -232,11 +232,11 @@ public class IC_Common {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void getClosest(List<T> items, double x, double y, double z, _GetDouble_T<T> getX, _GetDouble_T<T> getY, _GetDouble_T<T> getZ, _GetDouble_T<T> getX2, _GetDouble_T<T> getY2, _GetDouble_T<T> getZ2, BestMatch bestMatch) {
+    public static <T> void getClosest(List<T> items, float x, float y, float z, _GetFloat_T<T> getX, _GetFloat_T<T> getY, _GetFloat_T<T> getZ, _GetFloat_T<T> getX2, _GetFloat_T<T> getY2, _GetFloat_T<T> getZ2, BestMatch bestMatch) {
 
         for (T t : items) {
 
-            double dist = distSq(x, y, z, getX.val(t), getY.val(t), getZ.val(t));
+            float dist = distSq(x, y, z, getX.val(t), getY.val(t), getZ.val(t));
 
             if (dist < bestMatch.val) {
                 bestMatch.val = dist;
@@ -260,9 +260,9 @@ public class IC_Common {
     public static class BestMatch<T> {
 
         public T item;
-        public double val;
+        public float val;
 
-        public BestMatch(double val) {
+        public BestMatch(float val) {
             this.val = val;
         }
 

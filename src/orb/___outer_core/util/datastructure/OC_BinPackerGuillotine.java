@@ -1,7 +1,7 @@
 package orb.___outer_core.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_2D;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Tree_2D;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
         {
 
 
-    public double x, y, w, h;
+    public float x, y, w, h;
 
     public boolean used;
 
@@ -42,7 +42,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
 
 
 
-    public OC_BinPackerGuillotine(double x, double y, double w, double h) {
+    public OC_BinPackerGuillotine(float x, float y, float w, float h) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -52,13 +52,13 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     // todo: what about: (we can use that in the split method, which makes it much more save cause OS has not to override
     // split for example.
 
-    public C newInstance(double x, double y, double w, double h) {
+    public C newInstance(float x, float y, float w, float h) {
         return (C) new OC_BinPackerGuillotine(x, y, w, h);
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public void split(double w, double h) {
+    public void split(float w, float h) {
         used = true;
 //        right = (C) new OC_GuillotinePacker(x + w, y, this.w - w, h);
 //        down  = (C) new OC_GuillotinePacker(x, y + h, this.w, this.h - h);
@@ -72,7 +72,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
-    public C find(double w, double h) {
+    public C find(float w, float h) {
 
         if (this.w < w || this.h < h) return null;
 
@@ -94,7 +94,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public C pack(double w, double h) {
+    public C pack(float w, float h) {
 
         C target = find(w, h);
 
@@ -107,7 +107,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public C pack(T t, double w, double h) {
+    public C pack(T t, float w, float h) {
 
         C where = pack(w, h);
         if (where != null) where.item = t;
@@ -145,29 +145,29 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     }
 
     @Override
-    public double x1() {
+    public float x1() {
         return x;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return y;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return x+w;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return y+h;
     }
 
 
     // maybe a find method as well? (in interface) (it might could even be a default based on forward find and back find)
     @Override
-    public C backFind(double x, double y) {
+    public C backFind(float x, float y) {
 
         if (x2() > x || y2() > y) return null;
 
@@ -179,7 +179,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     }
 
     @Override
-    public C backFind(double x, double y, double x2, double y2) {
+    public C backFind(float x, float y, float x2, float y2) {
         // todo
         // what will the purpose be of this method?
         // find the first bin that fits this condition (it doesn't have to be free)
@@ -188,7 +188,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     }
 
     @Override
-    public C forwardFind(double x, double y) {
+    public C forwardFind(float x, float y) {
 
         if (hasChildren()) {
             if (right.contains_point(x, y)) return (C) right.forwardFind(x, y);
@@ -200,7 +200,7 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
     }
 
     @Override
-    public C forwardFind(double x, double y, double x2, double y2) {
+    public C forwardFind(float x, float y, float x2, float y2) {
         // todo
         System.out.println("todo, what about forwardFind aabb in OC_GuillotinePacker? ");
         return null;
@@ -248,12 +248,12 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
             // todo
 
             @Override
-            public double getX2(T t) {
+            public float getX2(T t) {
                 return 0;
             }
 
             @Override
-            public double getY2(T t) {
+            public float getY2(T t) {
                 return 0;
             }
 
@@ -263,22 +263,22 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
             }
 
             @Override
-            public T query(double tx, double ty) {
+            public T query(float tx, float ty) {
                 return null;
             }
 
             @Override
-            public C query(List<T> containing, List<T> intersecting, double tx, double ty) {
+            public C query(List<T> containing, List<T> intersecting, float tx, float ty) {
                 return null;
             }
 
             @Override
-            public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2) {
+            public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2) {
                 return null;
             }
 
             @Override
-            public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ) {
+            public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ) {
                 return null;
             }
 
@@ -303,17 +303,17 @@ public class OC_BinPackerGuillotine<T, C extends OC_BinPackerGuillotine> // exte
             }
 
             @Override
-            public C queryClosest(double x, double y, IC_Common.BestMatch<T> bestMatch) {
+            public C queryClosest(float x, float y, IC_Common.BestMatch<T> bestMatch) {
                 return null;
             }
 
             @Override
-            public double getX(T t) {
+            public float getX(T t) {
                 return 0;
             }
 
             @Override
-            public double getY(T t) {
+            public float getY(T t) {
                 return 0;
             }
 

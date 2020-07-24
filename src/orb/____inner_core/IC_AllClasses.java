@@ -1,45 +1,45 @@
-package orb.inner_core;
+package orb.____inner_core;
 
-import nl.doekewartena.orb.inner_core.geom._AABB;
-import nl.doekewartena.orb.inner_core.geom._AABB_2D;
-import nl.doekewartena.orb.inner_core.geom._AABB_3D;
-import nl.doekewartena.orb.inner_core.geom._Line;
-import nl.doekewartena.orb.inner_core.geom._Rect;
-import nl.doekewartena.orb.inner_core.geom._Triangle;
-import nl.doekewartena.orb.inner_core.geom._Vec2;
-import nl.doekewartena.orb.inner_core.geom._Vec3;
-import nl.doekewartena.orb.inner_core.geom._Vec4;
+import orb.____inner_core.geom._AABB;
+import orb.____inner_core.geom._AABB_2D;
+import orb.____inner_core.geom._AABB_3D;
+import orb.____inner_core.geom._Line;
+import orb.____inner_core.geom._Rect;
+import orb.____inner_core.geom._Triangle;
+import orb.____inner_core.geom._Vec2;
+import orb.____inner_core.geom._Vec3;
+import orb.____inner_core.geom._Vec4;
 
 /*
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXY;
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXY_T;
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXY_TT;
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXYZ;
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXYZ_T;
-import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXYZ_TT;
+import orb.____inner_core.util.compare.excluded._CompareXY;
+import orb.____inner_core.util.compare.excluded._CompareXY_T;
+import orb.____inner_core.util.compare.excluded._CompareXY_TT;
+import orb.____inner_core.util.compare.excluded._CompareXYZ;
+import orb.____inner_core.util.compare.excluded._CompareXYZ_T;
+import orb.____inner_core.util.compare.excluded._CompareXYZ_TT;
 */
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data         ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D      ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_3D      ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Query_2D     ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Query_3D     ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree         ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_2D      ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_3D      ;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings ;
+import orb.____inner_core.util.datatstructure._Data         ;
+import orb.____inner_core.util.datatstructure._Data_2D      ;
+import orb.____inner_core.util.datatstructure._Data_3D      ;
+import orb.____inner_core.util.datatstructure._Query_2D     ;
+import orb.____inner_core.util.datatstructure._Query_3D     ;
+import orb.____inner_core.util.datatstructure._Tree         ;
+import orb.____inner_core.util.datatstructure._Tree_2D      ;
+import orb.____inner_core.util.datatstructure._Tree_3D      ;
+import orb.____inner_core.util.datatstructure._TreeSettings ;
 
 
 
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_TT;
-import nl.doekewartena.orb.inner_core.util.function._GetInt_T;
-import nl.doekewartena.orb.inner_core.util.function._GetIterator_T;
-import nl.doekewartena.orb.inner_core.util.function._GetX_T;
-import nl.doekewartena.orb.inner_core.util.function._GetY_T;
-import nl.doekewartena.orb.inner_core.util.function._GetZ_T;
-import nl.doekewartena.orb.inner_core.util.function._Insert_T;
-import nl.doekewartena.orb.inner_core.util.function._Remove_T;
+import orb.____inner_core.util.function._GetFloat_T;
+import orb.____inner_core.util.function._GetFloat_TT;
+import orb.____inner_core.util.function._GetInt_T;
+import orb.____inner_core.util.function._GetIterator_T;
+import orb.____inner_core.util.function._GetX_T;
+import orb.____inner_core.util.function._GetY_T;
+import orb.____inner_core.util.function._GetZ_T;
+import orb.____inner_core.util.function._Insert_T;
+import orb.____inner_core.util.function._Remove_T;
 
 
 /**
@@ -85,8 +85,8 @@ public class IC_AllClasses {
     // function
         // there is also unused atm!
 
-    public final static Class _GetDoubleT   = _GetDouble_T.class;
-    public final static Class _GetDoubleTT  = _GetDouble_TT.class;
+    public final static Class _GetFloatT   = _GetFloat_T.class;
+    public final static Class _GetFloatTT  = _GetFloat_TT.class;
     public final static Class _GetIntT      = _GetInt_T.class;
     public final static Class _GetIteratorT = _GetIterator_T.class;
     public final static Class _GetX_T       = _GetX_T.class;

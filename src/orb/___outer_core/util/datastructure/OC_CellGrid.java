@@ -1,14 +1,14 @@
 package orb.___outer_core.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.geom._AABB_2D;
-import nl.doekewartena.orb.inner_core.geom._AABB_3D;
-import nl.doekewartena.orb.inner_core.util.compare.IC_Compare;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Query_2D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_2D;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.geom._AABB_2D;
+import orb.____inner_core.geom._AABB_3D;
+import orb.____inner_core.util.compare.IC_Compare;
+import orb.____inner_core.util.datatstructure._Data_2D;
+import orb.____inner_core.util.datatstructure._Query_2D;
+import orb.____inner_core.util.datatstructure._Data;
+import orb.____inner_core.util.datatstructure._Tree_2D;
+import orb.____inner_core.util.function._GetFloat_T;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import static nl.doekewartena.orb.inner_core.IC_Math.*;
+import static orb.____inner_core.IC_Math.*;
 
 /**
  * Created by doekewartena on 8/27/15.
@@ -48,7 +48,7 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
       // on the other hand it's not convenient cause we have to implement methods we don't want
       // maybe it should implement _Data_2D, kinda makes sense
 
-    double x1, y1, x2, y2;
+    float x1, y1, x2, y2;
 
     int nOfCellsX;
     int nOfCellsY;
@@ -57,22 +57,22 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
     // or _AABB_2D
     public OC_Cell_2D[] cells;
 
-    double cellWidth, cellHeight;
+    float cellWidth, cellHeight;
 
 
     int nOfItems; // this will only work if not modified outside!
 
-    _GetDouble_T<T> getX;
-    _GetDouble_T<T> getY;
-    _GetDouble_T<T> getX2;
-    _GetDouble_T<T> getY2;
+    _GetFloat_T<T> getX;
+    _GetFloat_T<T> getY;
+    _GetFloat_T<T> getX2;
+    _GetFloat_T<T> getY2;
 
 
-    public OC_CellGrid(double x1, double y1, double x2, double y2, int nOfCellsX, int nOfCellsY) {
+    public OC_CellGrid(float x1, float y1, float x2, float y2, int nOfCellsX, int nOfCellsY) {
         init(x1, y1, x2, y2, nOfCellsX, nOfCellsY);
     }
 
-    protected void init(double x1, double y1, double x2, double y2, int nOfCellsX, int nOfCellsY) {
+    protected void init(float x1, float y1, float x2, float y2, int nOfCellsX, int nOfCellsY) {
 
         this.x1 = x1;
         this.y1 = y1;
@@ -106,7 +106,7 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
         return cells[col + row * nOfCellsX];
     }
 
-    public OC_Cell_2D getCell(double x, double y) {
+    public OC_Cell_2D getCell(float x, float y) {
 
         if (x < x1() || x > x2() || y < y1() || y > y2()) return null;
 
@@ -127,22 +127,22 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
 
 
     @Override
-    public double x1() {
+    public float x1() {
         return x1;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return y1;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return x2;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return y2;
     }
 
@@ -150,22 +150,22 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return getX.val(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return getY.val(t);
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         return getX2.val(t);
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         return getY2.val(t);
     }
 
@@ -175,7 +175,7 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
     }
 
     @Override
-    public T query(double tx, double ty) {
+    public T query(float tx, float ty) {
         OC_Cell_2D cell = getCell(tx, ty);
         if (cell != null) {
             return cell.data.query(tx, ty);
@@ -184,7 +184,7 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
     }
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx, double ty) {
+    public C query(List<T> containing, List<T> intersecting, float tx, float ty) {
         OC_Cell_2D cell = getCell(tx, ty);
         if (cell != null) {
             cell.data.query(containing, intersecting, tx, ty);
@@ -193,14 +193,14 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
     }
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2) {
+    public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2) {
         // we need all the cells now it intersects with
         // todo
         return (C) this;
     }
 
     @Override
-    public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ) {
+    public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ) {
         return (C) this;
     }
 
@@ -260,7 +260,7 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
 
 
     @Override
-    public C queryClosest(double x, double y, IC_Common.BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, IC_Common.BestMatch<T> bestMatch) {
 
 
 
@@ -427,12 +427,12 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
         }
 
         @Override
-        public double getX2(T t) {
+        public float getX2(T t) {
             return OC_CellGrid.this.getX2(t);
         }
 
         @Override
-        public double getY2(T t) {
+        public float getY2(T t) {
             return OC_CellGrid.this.getY2(t);
         }
 
@@ -445,25 +445,25 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
         }
 
         @Override
-        public T query(double tx, double ty) {
+        public T query(float tx, float ty) {
             System.out.println("todo query OC_Cell_2D");
             return null;
         }
 
         @Override
-        public OC_Cell_2D query(List<T> containing, List<T> intersecting, double tx, double ty) {
+        public OC_Cell_2D query(List<T> containing, List<T> intersecting, float tx, float ty) {
             System.out.println("todo query OC_Cell_2D");
             return this;
         }
 
         @Override
-        public OC_Cell_2D query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2) {
+        public OC_Cell_2D query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2) {
             System.out.println("todo query OC_Cell_2D");
             return this;
         }
 
         @Override
-        public OC_Cell_2D queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ) {
+        public OC_Cell_2D queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ) {
             System.out.println("todo query OC_Cell_2D");
             return this;
         }
@@ -493,18 +493,18 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
         }
 
         @Override
-        public OC_Cell_2D queryClosest(double x, double y, IC_Common.BestMatch<T> bestMatch) {
+        public OC_Cell_2D queryClosest(float x, float y, IC_Common.BestMatch<T> bestMatch) {
             System.out.println("todo query OC_Cell_2D");
             return this;
         }
 
         @Override
-        public double getX(T t) {
+        public float getX(T t) {
             return OC_CellGrid.this.getX(t);
         }
 
         @Override
-        public double getY(T t) {
+        public float getY(T t) {
             return OC_CellGrid.this.getY(t);
         }
 
@@ -516,22 +516,22 @@ public class OC_CellGrid<T, C extends OC_CellGrid>
 
 
         @Override
-        public double x1() {
+        public float x1() {
             return row * cellWidth;
         }
 
         @Override
-        public double y1() {
+        public float y1() {
             return col * cellHeight;
         }
 
         @Override
-        public double x2() {
+        public float x2() {
             return (row+1) * cellWidth;
         }
 
         @Override
-        public double y2() {
+        public float y2() {
             return (col+1) * cellHeight;
         }
 

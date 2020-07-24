@@ -1,12 +1,12 @@
 package orb._crust.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_Data2DAABB_List;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_Data2DPoint_List;
-import nl.doekewartena.orb.outer_core.util.datastructure.OC_QuadTree_AABB;
+import orb.____inner_core.util.datatstructure._Data;
+import orb.____inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.function._GetFloat_T;
+import orb.___outer_core.util.datastructure.OC_Data2DAABB_List;
+import orb.___outer_core.util.datastructure.OC_Data2DPoint_List;
+import orb.___outer_core.util.datastructure.OC_QuadTree_AABB;
 
 import java.util.ArrayList;
 
@@ -30,19 +30,19 @@ public class C_QuadTree_AABB<T> extends OC_QuadTree_AABB<T, C_QuadTree_AABB<T>> 
 //        auto_scale = true;
 //    }
 
-    public C_QuadTree_AABB(double x1,
-                           double y1,
-                           double x2,
-                           double y2,
+    public C_QuadTree_AABB(float x1,
+                           float y1,
+                           float x2,
+                           float y2,
                            _TreeSettings<T> settings) {
 
         super(null, x1, y1, x2, y2, settings);
     }
 
 
-    public C_QuadTree_AABB(_GetDouble_T<T> getX1, _GetDouble_T<T> getY1,
-                           _GetDouble_T<T> getX2, _GetDouble_T<T> getY2,
-                           double x1, double y1, double x2, double y2) {
+    public C_QuadTree_AABB(_GetFloat_T<T> getX1, _GetFloat_T<T> getY1,
+                           _GetFloat_T<T> getX2, _GetFloat_T<T> getY2,
+                           float x1, float y1, float x2, float y2) {
 
         //super(null, x1, y1, x2, y2, () -> new OC_Data2DPoint_List<>());
         super(null, x1, y1, x2, y2, new _TreeSettings<T>() {
@@ -80,10 +80,10 @@ public class C_QuadTree_AABB<T> extends OC_QuadTree_AABB<T, C_QuadTree_AABB<T>> 
 
     // used in split
     protected C_QuadTree_AABB(C_QuadTree_AABB<T> parent,
-                              double x1,
-                              double y1,
-                              double x2,
-                              double y2,
+                              float x1,
+                              float y1,
+                              float x2,
+                              float y2,
                               _TreeSettings<T> settings) {
 
         super(parent, x1, y1, x2, y2, settings);
@@ -98,12 +98,12 @@ public class C_QuadTree_AABB<T> extends OC_QuadTree_AABB<T, C_QuadTree_AABB<T>> 
     }
 
     @Override
-    public C_QuadTree_AABB<T> insert(T t, double x, double y, double x2, double y2) {
+    public C_QuadTree_AABB<T> insert(T t, float x, float y, float x2, float y2) {
         return insert(t, x, y, x2, y2, 0);
     }
 
     @Override
-    public C_QuadTree_AABB<T> insert(T t, double _x, double _y, double _x2, double _y2, int level) {
+    public C_QuadTree_AABB<T> insert(T t, float _x, float _y, float _x2, float _y2, int level) {
 
         // shell rocks, we do this only once!
         if (_x > _x2) _x2 = (_x+_x2) - (_x=_x2); // cool swap :)

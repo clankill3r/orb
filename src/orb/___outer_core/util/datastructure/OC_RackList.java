@@ -1,5 +1,7 @@
 package orb.___outer_core.util.datastructure;
 
+import static orb.____inner_core.IC_Math.*;
+
 import java.util.*;
 
 /**
@@ -436,7 +438,7 @@ public class OC_RackList<E> extends AbstractList<E> implements List<E> { // Rand
                 // we should test with how much we move
                 // now we move a lot more then needed
                 // but this could come in handy
-                int max = Math.max(1, (RACK_CAPACITY - size)/2);
+                int max = max(1, (RACK_CAPACITY - size)/2);
                 moveNullsToEnd(data, max);
 
                 int index = data.length;

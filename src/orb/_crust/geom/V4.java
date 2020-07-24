@@ -1,81 +1,81 @@
 package orb._crust.geom;
 
-import nl.doekewartena.orb.inner_core.geom._Vec4;
+import orb.____inner_core.geom._Vec4;
 
 /**
  * Created by doekewartena on 8/19/15.
  */
 public class V4 implements _Vec4<V4> {
 
-    public double x, y, z, w;
+    public float x, y, z, w;
 
     public V4() {
     }
 
-    public V4(double x, double y) {
+    public V4(float x, float y) {
         set(x, y);
     }
 
-    public V4(double x, double y, double z) {
+    public V4(float x, float y, float z) {
         set(x, y, z);
     }
 
-    public V4(double x, double y, double z, double w) {
+    public V4(float x, float y, float z, float w) {
         set(x, y, z, w);
     }
 
     @Override
-    public double x() {
+    public float x() {
         return x;
     }
 
     @Override
-    public double y() {
+    public float y() {
         return y;
     }
 
     // todo, we should get rid of either one
 
 //    @Override
-//    public double getX(V4 v) {
+//    public float getX(V4 v) {
 //        return v.x;
 //    }
 //
 //    @Override
-//    public double getY(V4 v) {
+//    public float getY(V4 v) {
 //        return v.y;
 //    }
 
     @Override
-    public double z() {
+    public float z() {
         return z;
     }
 
 //    @Override
-//    public double getZ(V4 v4) {
+//    public float getZ(V4 v4) {
 //        return v4.z;
 //    }
 
     @Override
-    public double w() {
+    public float w() {
         return w;
     }
 
 
     @Override
-    public V4 set(double x, double y) {
+    public V4 set(float x, float y) {
         set(x, y);
         return this;
     }
 
     @Override
-    public V4 set(double x, double y, double z) {
+    public V4 set(float x, float y, float z) {
         set(x, y, z);
         return this;
     }
 
     @Override
-    public V4 set(double x, double y, double z, double w) {
+    public V4 set(float x, float y, float z, float w) {
         set(x, y, z, w);
         return this;
     }

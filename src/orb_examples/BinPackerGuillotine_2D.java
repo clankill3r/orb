@@ -1,8 +1,7 @@
-package orb_examples;
+package  orb_examples;
 
-
-import nl.doekewartena.orb.crust.util.datastructure.C_BinPackerGuillotine;
-import org.problessing.Problessing;
+import orb._crust.util.datastructure.C_BinPackerGuillotine;
+import processing.core.PApplet;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,10 +9,10 @@ import java.util.Collections;
 /**
  * Created by doekewartena on 6/11/15.
  */
-public class BinPackerGuillotine_2D extends Problessing {
+public class BinPackerGuillotine_2D extends PApplet {
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.BinPackerGuillotine_2D", args);
+        PApplet.main(BinPackerGuillotine_2D.class, args);
     }
 
     public void settings() {

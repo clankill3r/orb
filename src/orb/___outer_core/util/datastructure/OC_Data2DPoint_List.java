@@ -1,13 +1,13 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D;
-import nl.doekewartena.orb.inner_core.util.function._GetDouble_T;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Data_2D;
+import orb.____inner_core.util.function._GetFloat_T;
 
 import java.util.List;
 
-import static nl.doekewartena.orb.inner_core.IC_Math.distSq;
+import static orb.____inner_core.IC_Math.distSq;
 
 
 /**
@@ -15,11 +15,11 @@ import static nl.doekewartena.orb.inner_core.IC_Math.distSq;
  */
 public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _Data_2D<T, C> {
 
-    _GetDouble_T<T> getX, getY;
+    _GetFloat_T<T> getX, getY;
 
     List<T> items;
 
-    public OC_Data2DPoint_List(_GetDouble_T<T> getX, _GetDouble_T<T> getY, List<T> list) {
+    public OC_Data2DPoint_List(_GetFloat_T<T> getX, _GetFloat_T<T> getY, List<T> list) {
         //items = new ArrayList<>();
         this.getX = getX;
         this.getY = getY;
@@ -56,35 +56,35 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 //    }
 
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return getX.val(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return getY.val(t);
     }
 
 
     // todo don't have this in the interface
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         System.out.println("[ERROR]: getX2 used with Data2DPoint_List point");
         return -1;
     }
 
     // todo don't have this in the interface
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         System.out.println("[ERROR]: getY2 used with Data2DPoint_List point");
         return -1;
     }
 
     @Override
-    public T query(double tx, double ty) {
+    public T query(float tx, float ty) {
         for (T t : items) {
-            double x = getX.val(t);
-            double y = getY.val(t);
+            float x = getX.val(t);
+            float y = getY.val(t);
             if (x == tx && y == ty) return t;
         }
         return null;
@@ -92,14 +92,14 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query(List<T> containing, List<T> intersecting, double tx, double ty) {
+    public C query(List<T> containing, List<T> intersecting, float tx, float ty) {
 
         // like this?
         List<T> target = intersecting != null ? intersecting : containing;
 
         for (T t : items) {
-            double x = getX.val(t);
-            double y = getY.val(t);
+            float x = getX.val(t);
+            float y = getY.val(t);
             if (x == tx && y == ty) target.add(t);
         }
         return (C) this;
@@ -107,7 +107,7 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2) {
+    public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2) {
 
         final boolean checkContaining = containing != null;
         final boolean checkIntersecting = intersecting != null;
@@ -118,8 +118,8 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
             added = false;
 
-            double x = getX.val(t);
-            double y = getY.val(t);
+            float x = getX.val(t);
+            float y = getY.val(t);
 
             if (checkContaining) {
                 if (x > tx1 && x < tx2 &&
@@ -144,7 +144,7 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ) {
+    public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ) {
 
         if (items.isEmpty()) return (C) this;
 
@@ -157,9 +157,9 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
             added = false;
 
-            double x = getX.val(t);
-            double y = getY.val(t);
-            double dSQ = distSq(cx, cy, x, y);
+            float x = getX.val(t);
+            float y = getY.val(t);
+            float dSQ = distSq(cx, cy, x, y);
 
             if (checkContaining) {
                 if (dSQ < radiusSQ) {
@@ -207,7 +207,7 @@ public class OC_Data2DPoint_List<T, C extends OC_Data2DPoint_List> implements _D
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryClosest(double x, double y, IC_Common.BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, IC_Common.BestMatch<T> bestMatch) {
         IC_Common.getClosest(items, x, y, getX, getY, bestMatch);
         return (C) this;
     }

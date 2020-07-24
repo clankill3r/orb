@@ -1,7 +1,7 @@
 package orb.___outer_core.util.datastructure;
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_3D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.datatstructure._Data_3D;
+import orb.____inner_core.util.datatstructure._TreeSettings;
 
 /**
  * Created by doekewartena on 8/24/15.
@@ -14,11 +14,11 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
 
 
 
-    public OC_Octree_AABB(double x1, double y1, double z1, double x2, double y2, double z2, _TreeSettings<T> settings) {
+    public OC_Octree_AABB(float x1, float y1, float z1, float x2, float y2, float z2, _TreeSettings<T> settings) {
         this(null, x1, y1, z1, x2, y2, z2, settings);
     }
 
-    protected OC_Octree_AABB(C parent, double x1, double y1, double z1, double x2, double y2, double z2, _TreeSettings<T> settings) {
+    protected OC_Octree_AABB(C parent, float x1, float y1, float z1, float x2, float y2, float z2, _TreeSettings<T> settings) {
         super(parent, x1, y1, z1, x2, y2, z2, (_Data_3D<T, ?>) settings.createDataInstance());
         this.settings = settings;
     }
@@ -26,11 +26,11 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
 
     // splitting up is shit cause it leads in using getX etc. more times then required...
     /*
-    public boolean contains(T t, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+    public boolean contains(T t, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
 
-        double x = settings.getX.val(t);
-        double y = settings.getY.val(t);
-        double z = settings.getZ.val(t);
+        float x = settings.getX.val(t);
+        float y = settings.getY.val(t);
+        float z = settings.getZ.val(t);
 
         return (x > tx1 && x < tx2 &&
                 y > ty1 && y < ty2 &&
@@ -38,11 +38,11 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
     }
 
 
-    public boolean intersects(T t, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+    public boolean intersects(T t, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
 
-        double x = settings.getX.val(t);
-        double y = settings.getY.val(t);
-        double z = settings.getZ.val(t);
+        float x = settings.getX.val(t);
+        float y = settings.getY.val(t);
+        float z = settings.getZ.val(t);
 
         return (x >= tx1 && x <= tx2 &&
                 y >= ty1 && y <= ty2 &&
@@ -80,12 +80,12 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
         return insert(t, getX(t), getY(t), getZ(t), getX2(t), getY2(t), getZ2(t));
     }
 
-    public C insert(T t, double x, double y, double z, double x2, double y2, double z2) {
+    public C insert(T t, float x, float y, float z, float x2, float y2, float z2) {
         return insert(t, x, y, z, x2, y2, z2, 0);
     }
 
     //todo  no bound checking (which is/was correct!)
-    public C insert(T t, double x, double y, double z, double x2, double y2, double z2, int level) {
+    public C insert(T t, float x, float y, float z, float x2, float y2, float z2, int level) {
 
         int where = level == settings.getMaxLevels() ? -1 : getIndex(x, y, z, x2, y2, z2);
 
@@ -132,32 +132,32 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
     }
 
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return data.getX(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return data.getY(t);
     }
 
     @Override
-    public double getZ(T t) {
+    public float getZ(T t) {
         return data.getZ(t);
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         return data.getX2(t);
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         return data.getY2(t);
     }
 
     @Override
-    public double getZ2(T t) {
+    public float getZ2(T t) {
         return data.getZ2(t);
     }
 
@@ -173,29 +173,29 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
 
 
         @Override
-        public T query(double tx, double ty, double tz) {
+        public T query(float tx, float ty, float tz) {
             for (T t : items) {
-                double x = settings.getX.val(t);
-                double y = settings.getY.val(t);
-                double z = settings.getZ.val(t);
+                float x = settings.getX.val(t);
+                float y = settings.getY.val(t);
+                float z = settings.getZ.val(t);
                 if (x == tx && y == ty && z == tz) return t;
             }
             return null;
         }
 
         @Override
-        public void query(List<T> containing, List<T> intersecting, double tx, double ty, double tz) {
+        public void query(List<T> containing, List<T> intersecting, float tx, float ty, float tz) {
             for (T t : items) {
-                double x = settings.getX.val(t);
-                double y = settings.getY.val(t);
-                double z = settings.getZ.val(t);
+                float x = settings.getX.val(t);
+                float y = settings.getY.val(t);
+                float z = settings.getZ.val(t);
                 // todo, check for intersecting null?
                 if (x == tx && y == ty && z == tz) intersecting.add(t);
             }
         }
 
         @Override
-        public void query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+        public void query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
             final boolean checkContaining = containing != null;
             final boolean checkIntersecting = intersecting != null;
 
@@ -205,9 +205,9 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
 
                 added = false;
 
-                double x = settings.getX.val(t);
-                double y = settings.getY.val(t);
-                double z = settings.getZ.val(t);
+                float x = settings.getX.val(t);
+                float y = settings.getY.val(t);
+                float z = settings.getZ.val(t);
 
                 if (checkContaining) {
                     if (x > tx1 && x < tx2 &&
@@ -227,7 +227,7 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
         }
 
         @Override
-        public void queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ) {
+        public void queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ) {
             final boolean checkContaining = containing != null;
             final boolean checkIntersecting = intersecting != null;
 
@@ -237,10 +237,10 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
 
                 added = false;
 
-                double x = settings.getX.val(t);
-                double y = settings.getY.val(t);
-                double z = settings.getZ.val(t);
-                double dSQ = distSq(cx, cy, cz, x, y, z);
+                float x = settings.getX.val(t);
+                float y = settings.getY.val(t);
+                float z = settings.getZ.val(t);
+                float dSQ = distSq(cx, cy, cz, x, y, z);
 
                 if (checkContaining) {
                     if (dSQ < radiusSQ) {
@@ -288,7 +288,7 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
         }
 
         @Override
-        public void queryClosest(double x, double y, double z, BestMatch<T> bestMatch) {
+        public void queryClosest(float x, float y, float z, BestMatch<T> bestMatch) {
             OC_Common.getClosest(items, x, y, z, settings.getX, settings.getY, settings.getZ, bestMatch);
         }
 
@@ -343,12 +343,12 @@ public class OC_Octree_AABB<T, C extends OC_Octree_AABB> extends OC_Octree<T, C>
         public boolean debug = false;
 
         // todo, test if final makes it faster
-        // todo, this is the only good reason so for to not use lambda's for a flexiable library so far? (Or can GetDoubleT implement Serializable)
-        transient _GetDoubleT<T> getX;
-        transient _GetDoubleT<T> getY;
-        transient _GetDoubleT<T> getZ;
+        // todo, this is the only good reason so for to not use lambda's for a flexiable library so far? (Or can GetFloatT implement Serializable)
+        transient _GetFloatT<T> getX;
+        transient _GetFloatT<T> getY;
+        transient _GetFloatT<T> getZ;
 
-        public Settings(_GetDoubleT<T> getX, _GetDoubleT<T> getY, _GetDoubleT<T> getZ) {
+        public Settings(_GetFloatT<T> getX, _GetFloatT<T> getY, _GetFloatT<T> getZ) {
             this.getX = getX;
             this.getY = getY;
             this.getZ = getZ;

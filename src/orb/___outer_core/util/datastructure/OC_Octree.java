@@ -1,9 +1,11 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.IC_Common;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_3D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_3D;
+import orb.____inner_core.IC_Common;
+import orb.____inner_core.util.datatstructure._Data_3D;
+import orb.____inner_core.util.datatstructure._Tree_3D;
+
+import static orb.____inner_core.IC_Math.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +25,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     {
 
-
+    
 
     public final static int TLF = 0; // top left front
     public final static int TRF = 1; // top right front
@@ -36,8 +38,8 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     public final static int BRB = 7; // bottom right back
 
     // todo: remove and remove init method?
-    protected double x1, y1, x2, y2;
-    protected double z1, z2;
+    protected float x1, y1, x2, y2;
+    protected float z1, z2;
 
     protected C[] children;
 
@@ -46,7 +48,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     _Data_3D<T, ?> data;
 
 
-    public OC_Octree(C parent, double x1, double y1, double z1, double x2, double y2, double z2, _Data_3D<T, ?> data) {
+    public OC_Octree(C parent, float x1, float y1, float z1, float x2, float y2, float z2, _Data_3D<T, ?> data) {
         init(parent, x1, y1, z1, x2, y2, z2, data);
     }
 
@@ -56,32 +58,32 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     // once more,
     @Override
-    public double x1() {
+    public float x1() {
         return x1;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return y1;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return x2;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return y2;
     }
 
     @Override
-    public double z1() {
+    public float z1() {
         return z1;
     }
 
     @Override
-    public double z2() {
+    public float z2() {
         return z2;
     }
 
@@ -98,7 +100,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
         return result;
     }
 
-    protected void init(C parent, double x1, double y1, double z1, double x2, double y2, double z2, _Data_3D<T, ?> data) {
+    protected void init(C parent, float x1, float y1, float z1, float x2, float y2, float z2, _Data_3D<T, ?> data) {
 
         this.parent = parent;
 
@@ -178,7 +180,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C backFind(double x, double y, double z) {
+    public C backFind(float x, float y, float z) {
 
         if (contains_point(x, y, z)) {
             return (C) this;
@@ -191,7 +193,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C backFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C backFind(float x, float y, float z, float x2, float y2, float z2) {
 
         if (contains_aabb(x, y, z, x2, y2, z2)) {
             return (C) this;
@@ -206,7 +208,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C forwardFind(double x, double y, double z) {
+    public C forwardFind(float x, float y, float z) {
         if (hasChildren()) {
             int where = getIndex(x, y, z);
             return (C) children[where].forwardFind(x, y, z);
@@ -216,7 +218,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C forwardFind(double x, double y, double z, double x2, double y2, double z2) {
+    public C forwardFind(float x, float y, float z, float x2, float y2, float z2) {
         if (hasChildren()) {
             int where = getIndex(x, y, z, x2, y2, z2);
             if (where != -1) return (C) children[where].forwardFind(x, y, z, x2, y2, z2);
@@ -244,7 +246,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public T query (double tx, double ty, double tz) {
+    public T query (float tx, float ty, float tz) {
         if (!contains_point(tx, ty, tz)) return null;
 
         if (!data.isEmpty()) {
@@ -263,7 +265,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query (List<T> containing, List<T> intersecting, double tx, double ty, double tz) {
+    public C query (List<T> containing, List<T> intersecting, float tx, float ty, float tz) {
         if (!contains_point(tx, ty, tz)) return (C) this;
 
         if (!data.isEmpty()) {
@@ -279,7 +281,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C query (List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2) {
+    public C query (List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2) {
         if (this.fitsWithin_aabb(tx1, ty1, tz1, tx2, ty2, tz2)) {
 
             queryAll(containing);
@@ -304,18 +306,18 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryRadius (List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radius) {
+    public C queryRadius (List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radius) {
         queryRadiusSq(containing, intersecting, cx, cy, cz, radius * radius);
         return (C) this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public C queryRadiusSq (List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ) {
+    public C queryRadiusSq (List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ) {
 
-        double radius = Math.sqrt(radiusSQ);
+        float radius = sqrt(radiusSQ);
 
-        double tx1, ty1, tz1, tx2, ty2, tz2;
+        float tx1, ty1, tz1, tx2, ty2, tz2;
         tx1 = cx - radius;
         ty1 = cy - radius;
         tz1 = cz - radius;
@@ -329,8 +331,8 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     }
 
     protected void queryRadiusSq(List<T> containing, List<T> intersecting,
-                                 double tx1, double ty1, double tz1, double tx2, double ty2, double tz2,
-                                 double cx, double cy, double cz, double radiusSQ) {
+                                 float tx1, float ty1, float tz1, float tx2, float ty2, float tz2,
+                                 float cx, float cy, float cz, float radiusSQ) {
 
         if (!this.contains_aabb(tx1, ty1, tz1, tx2, ty2, tz2) && !this.intersects_aabb(tx1, ty1, tz1, tx2, ty2, tz2)) {
             return;
@@ -516,7 +518,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     // todo todo todo
     @Override
     @SuppressWarnings("unchecked")
-    public C queryClosest(double x, double y, double z, IC_Common.BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, float z, IC_Common.BestMatch<T> bestMatch) {
 
         if (distToPointSq(x, y, z) > bestMatch.val) {
             return (C) this;
@@ -581,7 +583,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public int getIndex(double x, double y, double z) {
+    public int getIndex(float x, float y, float z) {
         if (z < cz()) { // front
             if (y < cy()) return x < cx() ? TLF : TRF;
             else          return x < cx() ? BLF : BRF;
@@ -597,7 +599,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     // protected?
     // other name?
     // correct for octree? (some explanation...)
-    public int getIndex(double x, double y, double z, double x2, double y2, double z2) {
+    public int getIndex(float x, float y, float z, float x2, float y2, float z2) {
 
         int index1 = getIndex(x, y, z);
         int index2 = getIndex(x2, y2, z2);
@@ -614,15 +616,15 @@ public abstract class OC_Octree<T, C extends OC_Octree>
     /*
     interface QueryData3D<T, C2 extends QueryData3D> extends _Data<T, C2> {
 
-        T query(double tx, double ty, double tz);
+        T query(float tx, float ty, float tz);
 
         // C2 as return type?
-        void query(List<T> containing, List<T> intersecting, double tx, double ty, double tz);
+        void query(List<T> containing, List<T> intersecting, float tx, float ty, float tz);
 
-        void query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2);
+        void query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2);
 
 
-        void queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ);
+        void queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ);
 
         // _Data -> _Data2D / _Data3D -> _QueryData2D / _QueryData3D
         void queryMinX(IC_Common.BestMatch<T> bestMatch);
@@ -634,7 +636,7 @@ public abstract class OC_Octree<T, C extends OC_Octree>
 
 
 
-        void queryClosest(double x, double y, double z, IC_Common.BestMatch<T> bestMatch);
+        void queryClosest(float x, float y, float z, IC_Common.BestMatch<T> bestMatch);
     }
     */
 

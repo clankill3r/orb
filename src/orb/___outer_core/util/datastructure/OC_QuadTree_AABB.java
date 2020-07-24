@@ -1,8 +1,8 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.datatstructure._Data_2D;
+import orb.____inner_core.util.datatstructure._TreeSettings;
 
 /**
  * Created by doekewartena on 8/18/15.
@@ -26,11 +26,11 @@ public class OC_QuadTree_AABB<T, C extends OC_QuadTree_AABB> extends OC_QuadTree
 //        this(0, 0, 1, 1, settings);
 //    }
 
-    public OC_QuadTree_AABB(double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    public OC_QuadTree_AABB(float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         this(null, x1, y1, x2, y2, settings); //, 0);
     }
 
-    protected OC_QuadTree_AABB(C parent, double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    protected OC_QuadTree_AABB(C parent, float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         super(parent, x1, y1, x2, y2, (_Data_2D<T, ?>) settings.createDataInstance());
         this.settings = settings;
     }
@@ -45,12 +45,12 @@ public class OC_QuadTree_AABB<T, C extends OC_QuadTree_AABB> extends OC_QuadTree
     }
 
     // move to interface?
-    public C insert(T t, double x, double y, double x2, double y2) {
+    public C insert(T t, float x, float y, float x2, float y2) {
         return insert(t, x, y, x2, y2, 0);
     }
 
 
-    public C insert(T t, double x, double y, double x2, double y2, int level) {
+    public C insert(T t, float x, float y, float x2, float y2, int level) {
 
         int where = level == settings.getMaxLevels() ? -1 : getIndex(x, y, x2, y2);
 
@@ -98,22 +98,22 @@ public class OC_QuadTree_AABB<T, C extends OC_QuadTree_AABB> extends OC_QuadTree
 
     // yes or no? user can always Override
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return data.getX(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return data.getY(t);
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         return data.getX2(t);
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         return data.getY2(t);
     }
 

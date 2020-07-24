@@ -1,47 +1,47 @@
 package orb._crust.geom;
 
 
-import nl.doekewartena.orb.inner_core.geom._Vec2;
+import orb.____inner_core.geom._Vec2;
 
 /**
  * Created by doekewartena on 8/19/15.
  */
 public class V2 implements _Vec2<V2> {
 
-    public double x, y;
+    public float x, y;
 
     public V2() {
 
     }
 
-    public V2(double x, double y) {
+    public V2(float x, float y) {
         set(x, y);
     }
 
     @Override
-    public double x() {
+    public float x() {
         return x;
     }
 
     @Override
-    public double y() {
+    public float y() {
         return y;
     }
 
     // todo, we should get rid of either one
 
 //    @Override
-//    public double getX(V2 v) {
+//    public float getX(V2 v) {
 //        return v.x;
 //    }
 //
 //    @Override
-//    public double getY(V2 v) {
+//    public float getY(V2 v) {
 //        return v.y;
 //    }
 
     @Override
-    public V2 set(double x, double y) {
+    public V2 set(float x, float y) {
         this.x = x;
         this.y = y;
         return this;

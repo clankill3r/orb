@@ -1,6 +1,6 @@
 package orb.____inner_core.util.datatstructure;
 
-import nl.doekewartena.orb.inner_core.geom._AABB_3D;
+import orb.____inner_core.geom._AABB_3D;
 
 import java.util.List;
 
@@ -12,19 +12,19 @@ import java.util.List;
 // this can open all gates to hell
 public interface _Tree_3D<T, C extends _Tree_3D> extends _Tree<T, C>, _AABB_3D, _Query_3D<T, C> {
 
-    C backFind(double x, double y, double z);
-    C backFind(double x, double y, double z, double x2, double y2, double z2);
+    C backFind(float x, float y, float z);
+    C backFind(float x, float y, float z, float x2, float y2, float z2);
 
-    C forwardFind(double x, double y, double z);
-    C forwardFind(double x, double y, double z, double x2, double y2, double z2);
+    C forwardFind(float x, float y, float z);
+    C forwardFind(float x, float y, float z, float x2, float y2, float z2);
 
     /*
     C queryAll(List<T> dest);
-    T query (double tx, double ty, double tz);
-    C query (List<T> containing, List<T> intersecting, double tx, double ty, double tz);
-    C query (List<T> containing, List<T> intersecting, double tx1, double ty1, double tz1, double tx2, double ty2, double tz2);
-    C queryRadius (List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radius);
-    C queryRadiusSq (List<T> containing, List<T> intersecting, double cx, double cy, double cz, double radiusSQ);
+    T query (float tx, float ty, float tz);
+    C query (List<T> containing, List<T> intersecting, float tx, float ty, float tz);
+    C query (List<T> containing, List<T> intersecting, float tx1, float ty1, float tz1, float tx2, float ty2, float tz2);
+    C queryRadius (List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radius);
+    C queryRadiusSq (List<T> containing, List<T> intersecting, float cx, float cy, float cz, float radiusSQ);
 
     // yes or no? (throw Exception)
     T queryMinX();
@@ -35,7 +35,7 @@ public interface _Tree_3D<T, C extends _Tree_3D> extends _Tree<T, C>, _AABB_3D, 
     T queryMaxZ();
     // what about the bestMatch? That might become to specific
 
-    T queryClosest(double x, double y, double z);
+    T queryClosest(float x, float y, float z);
     */
 
 

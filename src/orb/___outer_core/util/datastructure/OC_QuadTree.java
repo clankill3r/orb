@@ -1,9 +1,11 @@
 package orb.___outer_core.util.datastructure;
 
 
-import nl.doekewartena.orb.inner_core.IC_Common.BestMatch;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._Tree_2D;
+import orb.____inner_core.IC_Common.BestMatch;
+import orb.____inner_core.util.datatstructure._Data_2D;
+import orb.____inner_core.util.datatstructure._Tree_2D;
+
+import static orb.____inner_core.IC_Math.*;
 
 import java.util.Iterator;
 import java.util.List;
@@ -30,7 +32,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     public final static int BR = 3; // bottom right
 
     // todo: remove this and the init method?
-    double x1, x2, y1, y2;
+    float x1, x2, y1, y2;
 
     protected C[] children;
 
@@ -42,28 +44,28 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
     // data in constructor? better not I guess since it's not required
     // it will just be good so people don't forget
-    public OC_QuadTree(C parent, double x1, double y1, double x2, double y2, _Data_2D<T, ?> data) { //}, int level) {
+    public OC_QuadTree(C parent, float x1, float y1, float x2, float y2, _Data_2D<T, ?> data) { //}, int level) {
         init(parent, x1, y1, x2, y2, data); //, level);
     }
 
     // remove and leave to implementation?
     @Override
-    public double x1() {
+    public float x1() {
         return x1;
     }
 
     @Override
-    public double y1() {
+    public float y1() {
         return y1;
     }
 
     @Override
-    public double x2() {
+    public float x2() {
         return x2;
     }
 
     @Override
-    public double y2() {
+    public float y2() {
         return y2;
     }
 
@@ -78,7 +80,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     }
 
     // get rid of this init method?
-    protected void init(C parent, double x1, double y1, double x2, double y2, _Data_2D<T, ?> data) { //}, int level) {
+    protected void init(C parent, float x1, float y1, float x2, float y2, _Data_2D<T, ?> data) { //}, int level) {
 
         this.parent = parent;
 
@@ -158,7 +160,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     // OC_Tree2D
 
     @Override
-    public C backFind(double x, double y) {
+    public C backFind(float x, float y) {
 
         if (contains_point(x, y)) {
             return (C) this;
@@ -170,7 +172,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     }
 
     @Override
-    public C backFind(double x, double y, double x2, double y2) {
+    public C backFind(float x, float y, float x2, float y2) {
 
         if (contains_aabb(x, y, x2, y2)) {
             return (C) this;
@@ -186,7 +188,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
     // or upward and downward
     @Override
-    public C forwardFind(double x, double y) {
+    public C forwardFind(float x, float y) {
         if (hasChildren()) {
             int where = getIndex(x, y);
             return (C) children[where].forwardFind(x, y);
@@ -195,7 +197,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     }
 
     @Override
-    public C forwardFind(double x, double y, double x2, double y2) {
+    public C forwardFind(float x, float y, float x2, float y2) {
         if (hasChildren()) {
             int where = getIndex(x, y, x2, y2);
             if (where != -1) return (C) children[where].forwardFind(x, y, x2, y2);
@@ -224,7 +226,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
         // todo, do want to search up as well? (counts for more methods)
     @Override
-    public T query(double tx, double ty) {
+    public T query(float tx, float ty) {
 
         if (!contains_point(tx, ty)) return null;
 
@@ -243,7 +245,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx, double ty) {
+    public C query(List<T> containing, List<T> intersecting, float tx, float ty) {
 
         if (!contains_point(tx, ty)) return (C) this;
 
@@ -261,7 +263,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
 
     @Override
-    public C query(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2) {
+    public C query(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2) {
 
         if (this.fitsWithin_aabb(tx1, ty1, tx2, ty2)) {
 
@@ -291,12 +293,12 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
 
     @Override
-    public C queryRadiusSq(List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ) {
+    public C queryRadiusSq(List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ) {
 
         // todo, make the parameters so that we don't have to square! (no cx, cy maybe)
-        double radius = Math.sqrt(radiusSQ);
+        float radius = sqrt(radiusSQ);
 
-        double tx1, ty1, tx2, ty2;
+        float tx1, ty1, tx2, ty2;
         tx1 = cx - radius;
         ty1 = cy - radius;
         tx2 = cx + radius;
@@ -311,7 +313,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     // divide a circle into squares with some really good code
     // we need a aabb in circle test method
     //
-    protected void queryRadiusSq(List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2, double cx, double cy, double radiusSQ) {
+    protected void queryRadiusSq(List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2, float cx, float cy, float radiusSQ) {
 
         if (!this.contains_aabb(tx1, ty1, tx2, ty2) && !this.intersects_aabb(tx1, ty1, tx2, ty2)) {
             return;
@@ -428,7 +430,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
 
 
     @Override
-    public C queryClosest(double x, double y, BestMatch<T> bestMatch) {
+    public C queryClosest(float x, float y, BestMatch<T> bestMatch) {
 
         if (distToPointSq(x, y) > bestMatch.val) {
             return (C) this;
@@ -510,7 +512,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     // the thing with an index is that we could have different indexes for top left for example
     // this would depend on the implementation
     // other name?
-    public int getIndex(double x, double y) {
+    public int getIndex(float x, float y) {
         //if (!hasQuads()) return -1;
         if (y < cy()) return x < cx() ? TL : TR;
         else          return x < cx() ? BL : BR;
@@ -518,7 +520,7 @@ public abstract class OC_QuadTree<T, C extends OC_QuadTree>
     }
 
     // other name?
-    public int getIndex(double x, double y, double x2, double y2) {
+    public int getIndex(float x, float y, float x2, float y2) {
 
         int index1 = getIndex(x, y);
         int index2 = getIndex(x2, y2);

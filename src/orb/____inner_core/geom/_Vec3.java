@@ -1,8 +1,8 @@
 package orb.____inner_core.geom;
 
 
-import nl.doekewartena.orb.inner_core.IC_Math;
-//import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXYZ_T;
+import orb.____inner_core.IC_Math;
+//import orb.____inner_core.util.compare.excluded._CompareXYZ_T;
 
 /**
  * Created by doekewartena on 6/10/15.
@@ -12,16 +12,16 @@ import nl.doekewartena.orb.inner_core.IC_Math;
 public interface _Vec3<C extends _Vec3> extends _Vec2<C> { //}, _CompareXYZ_T<C> {
 
 
-    double z();
+    float z();
 
-    C set(double x, double y, double z);
+    C set(float x, float y, float z);
 
     default C set(_Vec3 o) {
         set(o.x(), o.y(), o.z());
         return (C) this;
     }
 
-    default C add(double x, double y, double z) {
+    default C add(float x, float y, float z) {
         set(x()+x, y()+y, z()+z);
         return (C) this;
     }
@@ -32,7 +32,7 @@ public interface _Vec3<C extends _Vec3> extends _Vec2<C> { //}, _CompareXYZ_T<C>
     }
 
 
-    default C sub(double x, double y, double z) {
+    default C sub(float x, float y, float z) {
         set(x()-x, y()-y, z()-z);
         return (C) this;
     }
@@ -43,48 +43,48 @@ public interface _Vec3<C extends _Vec3> extends _Vec2<C> { //}, _CompareXYZ_T<C>
     }
 
     @Override
-    default C mult(double n) {
+    default C mult(float n) {
         set(x()*n, y()*n, z()*n);
         return (C) this;
     }
 
     @Override
-    default C div(double n) {
+    default C div(float n) {
         set(x()/n, y()/n, z()/n);
         return (C) this;
     }
 
     @Override
-    default double mag() {
-        return Math.sqrt(x()*x() + y()*y() + z()*z());
+    default float mag() {
+        return (float)Math.sqrt(x()*x() + y()*y() + z()*z());
     }
 
     @Override
-    default double magSq() {
+    default float magSq() {
         return x()*x() + y()*y() + z()*z();
     }
 
-    default double dist(double x2, double y2, double z2) {
+    default float dist(float x2, float y2, float z2) {
         return IC_Math.dist(x(), y(), z(), x2, y2, z2);
     }
 
-    default double dist(_Vec3 o) {
+    default float dist(_Vec3 o) {
         return dist(o.x(), o.y(), o.z());
     }
 
-    default double distSq(double x2, double y2, double z2) {
+    default float distSq(float x2, float y2, float z2) {
         return IC_Math.distSq(x(), y(), z(), x2, y2, z2);
     }
 
-    default double distSq(_Vec3 o) {
+    default float distSq(_Vec3 o) {
         return distSq(o.x(), o.y(), o.z());
     }
 
-    default double dot(double x2, double y2, double z2) {
+    default float dot(float x2, float y2, float z2) {
         return x()*x2 + y()*y2 + z()*z2;
     }
 
-    default double dot(_Vec3 o) {
+    default float dot(_Vec3 o) {
         return dot(o.x(), o.y(), o.z());
     }
 

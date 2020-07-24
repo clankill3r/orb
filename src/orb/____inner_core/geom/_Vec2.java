@@ -1,8 +1,8 @@
 package orb.____inner_core.geom;
 
 
-import nl.doekewartena.orb.inner_core.IC_Math;
-//import nl.doekewartena.orb.inner_core.util.compare.excluded._CompareXY_T;
+import orb.____inner_core.IC_Math;
+//import orb.____inner_core.util.compare.excluded._CompareXY_T;
 
 /**
  * Created by doekewartena on 6/10/15.
@@ -30,11 +30,11 @@ angleBetween
 public interface _Vec2<C extends _Vec2> { //extends _CompareXY_T<C> {
 
     // interface!!
-    double x();
-    double y();
+    float x();
+    float y();
 
 
-    C set(double x, double y);
+    C set(float x, float y);
 
     default C foo(_Vec2 v) {
         return (C) this;
@@ -45,7 +45,7 @@ public interface _Vec2<C extends _Vec2> { //extends _CompareXY_T<C> {
         return (C) this;
     }
 
-    default C add(double x, double y) {
+    default C add(float x, float y) {
         set(x()+x, y()+y);
         return (C) this;
     }
@@ -55,7 +55,7 @@ public interface _Vec2<C extends _Vec2> { //extends _CompareXY_T<C> {
         return (C) this;
     }
 
-    default C sub(double x, double y) {
+    default C sub(float x, float y) {
         set(x() - x, y() - y);
         return (C) this;
     }
@@ -65,47 +65,47 @@ public interface _Vec2<C extends _Vec2> { //extends _CompareXY_T<C> {
         return (C) this;
     }
 
-    default C mult(double n) {
+    default C mult(float n) {
         set(x() * n, y() * n);
         return (C) this;
     }
 
-    default C div(double n) {
+    default C div(float n) {
         set(x()/n, y()/n);
         return (C) this;
     }
 
-    default double mag() {
-        return Math.sqrt(x() * x() + y() * y());
+    default float mag() {
+        return (float)Math.sqrt(x() * x() + y() * y());
     }
 
-    default double magSq() {
+    default float magSq() {
         return x()*x() + y()*y();
     }
 
-    default double dist(double tx, double ty) {
+    default float dist(float tx, float ty) {
         // we need full import else it classes with the current class
         return IC_Math.dist(x(), y(), tx, ty);
     }
 
-    default double dist(_Vec2 o) {
+    default float dist(_Vec2 o) {
         return dist(o.x(), o.y());
     }
 
-    default double distSq(double tx, double ty) {
+    default float distSq(float tx, float ty) {
         // we need full import else it classes with the current class
         return IC_Math.distSq(x(), y(), tx, ty);
     }
 
-    default double distSq(_Vec2 o) {
+    default float distSq(_Vec2 o) {
         return distSq(o.x(), o.y());
     }
 
-    default double dot(double x2, double y2) {
+    default float dot(float x2, float y2) {
         return x()*x2 + y()*y2;
     }
 
-    default double dot(_Vec2 o) {
+    default float dot(_Vec2 o) {
         return dot(o.x(), o.y());
     }
 
@@ -114,7 +114,7 @@ public interface _Vec2<C extends _Vec2> { //extends _CompareXY_T<C> {
     /*
     default C aimAt(_Vec2 v) {
 
-        double mag = magSq();
+        float mag = magSq();
         set(v);
         norm();
         mult(mag);

@@ -6,7 +6,8 @@ Original project is from 2015.
 2020 changes,
 
 - shortened package structure for easier navigation
-
+- removed double stuff
+- 
 
 
 

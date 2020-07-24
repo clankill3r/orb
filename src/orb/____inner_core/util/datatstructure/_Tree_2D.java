@@ -1,6 +1,6 @@
 package orb.____inner_core.util.datatstructure;
 
-import nl.doekewartena.orb.inner_core.geom._AABB_2D;
+import orb.____inner_core.geom._AABB_2D;
 
 import java.util.List;
 
@@ -20,11 +20,11 @@ public interface _Tree_2D<T, C extends _Tree_2D> extends _Tree<T, C>, _AABB_2D, 
 
     // do we want this? (it was usefull in our debug (for forwardFind))
     // this is not something we want for a celltree for example
-    C backFind(double x, double y);
-    C backFind(double x, double y, double x2, double y2);
+    C backFind(float x, float y);
+    C backFind(float x, float y, float x2, float y2);
 
-    C forwardFind(double x, double y);
-    C forwardFind(double x, double y, double x2, double y2);
+    C forwardFind(float x, float y);
+    C forwardFind(float x, float y, float x2, float y2);
 
      /*
 
@@ -32,11 +32,11 @@ public interface _Tree_2D<T, C extends _Tree_2D> extends _Tree<T, C>, _AABB_2D, 
     // queryPoint interface?, no we can query other things with the same methods
     //
     void queryAll(List<T> dest);
-    T query (double tx, double ty);
-    void query (List<T> containing, List<T> intersecting, double tx, double ty);
-    void query (List<T> containing, List<T> intersecting, double tx1, double ty1, double tx2, double ty2);
-    void queryRadius (List<T> containing, List<T> intersecting, double cx, double cy, double radius);
-    void queryRadiusSq (List<T> containing, List<T> intersecting, double cx, double cy, double radiusSQ);
+    T query (float tx, float ty);
+    void query (List<T> containing, List<T> intersecting, float tx, float ty);
+    void query (List<T> containing, List<T> intersecting, float tx1, float ty1, float tx2, float ty2);
+    void queryRadius (List<T> containing, List<T> intersecting, float cx, float cy, float radius);
+    void queryRadiusSq (List<T> containing, List<T> intersecting, float cx, float cy, float radiusSQ);
 
     // yes or no? (throw Exception)
     T queryMinX();
@@ -45,7 +45,7 @@ public interface _Tree_2D<T, C extends _Tree_2D> extends _Tree<T, C>, _AABB_2D, 
     T queryMaxY();
     // what about the bestMatch? That might become to specific
 
-    T queryClosest(double x, double y);
+    T queryClosest(float x, float y);
 
     */
 

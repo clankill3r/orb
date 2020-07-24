@@ -24,24 +24,24 @@ public interface _AABB {
     // also we leave x1 etc open for something else.
     // for example a triangle that is an AABB at the same time
     // really think this true!
-    double x1();
-    double y1();
-    double x2();
-    double y2();
+    float x1();
+    float y1();
+    float x2();
+    float y2();
 
-    default double cx() {
+    default float cx() {
         return x1() + ( (x2()-x1()) / 2);
     }
 
-    default double cy() {
+    default float cy() {
         return y1() + ( (y2()-y1()) / 2);
     }
 
-    default double width() {
+    default float width() {
         return x2() - x1();
     }
 
-    default double height() {
+    default float height() {
         return y2() - y1();
     }
 

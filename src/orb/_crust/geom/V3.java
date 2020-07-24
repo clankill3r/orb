@@ -1,68 +1,68 @@
 package orb._crust.geom;
 
-import nl.doekewartena.orb.inner_core.geom._Vec3;
+import orb.____inner_core.geom._Vec3;
 
 /**
  * Created by doekewartena on 8/19/15.
  */
 public class V3 implements _Vec3<V3> {
 
-    public double x, y, z;
+    public float x, y, z;
 
     public V3() {
 
     }
 
-    public V3(double x, double y) {
+    public V3(float x, float y) {
         set(x, y);
     }
 
-    public V3(double x, double y, double z) {
+    public V3(float x, float y, float z) {
         set(x, y, z);
     }
 
     @Override
-    public double x() {
+    public float x() {
         return x;
     }
 
     @Override
-    public double y() {
+    public float y() {
         return y;
     }
 
     // todo, we should get rid of either one
 
 //    @Override
-//    public double getX(V3 v) {
+//    public float getX(V3 v) {
 //        return v.x;
 //    }
 //
 //    @Override
-//    public double getY(V3 v) {
+//    public float getY(V3 v) {
 //        return v.y;
 //    }
 
 
     @Override
-    public double z() {
+    public float z() {
         return z;
     }
 
 //    @Override
-//    public double getZ(V3 v3) {
+//    public float getZ(V3 v3) {
 //        return v3.z;
 //    }
 
     @Override
-    public V3 set(double x, double y) {
+    public V3 set(float x, float y) {
         this.x = x;
         this.y = y;
         return this;
     }
 
     @Override
-    public V3 set(double x, double y, double z) {
+    public V3 set(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;

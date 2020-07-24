@@ -2,8 +2,8 @@ package orb.___outer_core.util.datastructure;
 
 
 
-import nl.doekewartena.orb.inner_core.util.datatstructure._Data_2D;
-import nl.doekewartena.orb.inner_core.util.datatstructure._TreeSettings;
+import orb.____inner_core.util.datatstructure._Data_2D;
+import orb.____inner_core.util.datatstructure._TreeSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +22,11 @@ public class OC_QuadTreePoint<T, C extends OC_QuadTreePoint> extends OC_QuadTree
     public _TreeSettings<T> settings;
 
 
-    public OC_QuadTreePoint(double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    public OC_QuadTreePoint(float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         this(null, x1, y1, x2, y2, settings); //, 0);
     }
 
-    protected OC_QuadTreePoint(C parent, double x1, double y1, double x2, double y2, _TreeSettings<T> settings) {
+    protected OC_QuadTreePoint(C parent, float x1, float y1, float x2, float y2, _TreeSettings<T> settings) {
         super(parent, x1, y1, x2, y2, (_Data_2D<T, ?>) settings.createDataInstance());
         this.settings = settings;
     }
@@ -42,13 +42,13 @@ public class OC_QuadTreePoint<T, C extends OC_QuadTreePoint> extends OC_QuadTree
     }
 
     // move to interface?
-    public C insert(T t, double x, double y) {
+    public C insert(T t, float x, float y) {
         return insert(t, x, y, 0);
     }
 
 
     @SuppressWarnings("unchecked")
-    public C insert(T t, double x, double y, int level) {
+    public C insert(T t, float x, float y, int level) {
 
         if (hasChildren()) {
             int where = getIndex(x, y);
@@ -69,8 +69,8 @@ public class OC_QuadTreePoint<T, C extends OC_QuadTreePoint> extends OC_QuadTree
 
                 for (int i = items.size()-1; i >= 0; i--) {
                     T t2 = items.remove(i);
-                    double x2 = getX(t2);
-                    double y2 = getY(t2);
+                    float x2 = getX(t2);
+                    float y2 = getY(t2);
                     insert(t2, x2, y2, level+1);
                 }
 
@@ -114,24 +114,24 @@ public class OC_QuadTreePoint<T, C extends OC_QuadTreePoint> extends OC_QuadTree
 
     // yes or no? user can always Override
     @Override
-    public double getX(T t) {
+    public float getX(T t) {
         return data.getX(t);
     }
 
     @Override
-    public double getY(T t) {
+    public float getY(T t) {
         return data.getY(t);
     }
 
     @Override
-    public double getX2(T t) {
+    public float getX2(T t) {
         // todo (throw?)
         System.out.println("[ERROR]: getX2 used with quadTree point");
         return -1;
     }
 
     @Override
-    public double getY2(T t) {
+    public float getY2(T t) {
         // todo (throw?)
         System.out.println("[ERROR]: getY2 used with quadTree point");
         return -1;

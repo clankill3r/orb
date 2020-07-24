@@ -1,7 +1,9 @@
 package orb.____inner_core.geom;
 
 
-//import nl.doekewartena.orb.inner_core.util.compare.excluded.IC_CompareXY;
+import static orb.____inner_core.IC_Math.*;
+
+//import orb.____inner_core.util.compare.excluded.IC_CompareXY;
 
 /**
  * Created by doekewartena on 8/26/15.
@@ -51,7 +53,7 @@ public interface _AABB_2D<T extends _AABB_2D> extends _AABB {//, _CompareXY_T<T>
 //        return IC_CompareXY.compareXY(x1(), y1(), t.x1(), t.y1());
 //    }
 
-    default boolean contains_point(double x, double y) {
+    default boolean contains_point(float x, float y) {
         return x >= x1() && x <= x2() &&
                y >= y1() && y <= y2();
     }
@@ -60,7 +62,7 @@ public interface _AABB_2D<T extends _AABB_2D> extends _AABB {//, _CompareXY_T<T>
         return contains_point(v.x(), v.y());
     }
 
-    default boolean contains_aabb(double bX1, double bY1, double bX2, double bY2) {
+    default boolean contains_aabb(float bX1, float bY1, float bX2, float bY2) {
         return bX1 >= x1() && bX2 <= x2() &&
                 bY1 >= y1() && bY2 <= y2();
     }
@@ -69,7 +71,7 @@ public interface _AABB_2D<T extends _AABB_2D> extends _AABB {//, _CompareXY_T<T>
         return contains_aabb(aabb.x1(), aabb.y1(), aabb.x2(), aabb.y2());
     }
 
-    default boolean intersects_aabb(double bX1, double bY1, double bX2, double bY2) {
+    default boolean intersects_aabb(float bX1, float bY1, float bX2, float bY2) {
         return !(x2() < bX1 || bX2 < x1() ||
                 y2() < bY1 || bY2 < y1());
     }
@@ -81,7 +83,7 @@ public interface _AABB_2D<T extends _AABB_2D> extends _AABB {//, _CompareXY_T<T>
     // fits is maybe misleading, cause in our implementation we take the
     // position into account
     // maybe isWithing / or isInside
-    default boolean fitsWithin_aabb(double bX1, double bY1, double bX2, double bY2) {
+    default boolean fitsWithin_aabb(float bX1, float bY1, float bX2, float bY2) {
         return x1() >= bX1 && x2() <= bX2 &&
                y1() >= bY1 && y2() <= bY2;
     }
@@ -90,23 +92,23 @@ public interface _AABB_2D<T extends _AABB_2D> extends _AABB {//, _CompareXY_T<T>
         return fitsWithin_aabb(aabb.x1(), aabb.y1(), aabb.x2(), aabb.y2());
     }
 
-    default double distToPoint(double px, double py) {
-        double cx = Math.max(Math.min(px, x2()), x1());
-        double cy = Math.max(Math.min(py, y2()), y1());
-        return Math.sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
+    default float distToPoint(float px, float py) {
+        float cx = max(min(px, x2()), x1());
+        float cy = max(min(py, y2()), y1());
+        return (float)sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
     }
 
-    default double distToPoint(_Vec2 v) {
+    default float distToPoint(_Vec2 v) {
         return distToPoint(v.x(), v.y());
     }
 
-    default double distToPointSq(double px, double py) {
-        double cx = Math.max(Math.min(px, x2()), x1());
-        double cy = Math.max(Math.min(py, y2()), y1());
+    default float distToPointSq(float px, float py) {
+        float cx = max(min(px, x2()), x1());
+        float cy = max(min(py, y2()), y1());
         return (px-cx)*(px-cx) + (py-cy)*(py-cy);
     }
 
-    default double distToPointSq(_Vec2 v) {
+    default float distToPointSq(_Vec2 v) {
         return distToPointSq(v.x(), v.y());
     }
 

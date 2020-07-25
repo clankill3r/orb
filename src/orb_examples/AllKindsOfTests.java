@@ -4,10 +4,8 @@ import orb._crust.geom.V2;
 import orb._crust.geom.V3;
 import orb.____inner_core.util.compare.IC_Compare;
 import orb.___outer_core.util.compare.OC_ComparatorStack;
-
 import java.util.*;
 
-import static orb.____inner_core.util.compare.IC_Compare.compare;
 
 /**
  * Created by doekewartena on 9/13/15.

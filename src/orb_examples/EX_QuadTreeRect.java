@@ -8,10 +8,10 @@ import static orb._crust._CSSColors.*;
 /**
  * Created by doekewartena on 8/23/15.
  */
-public class QuadTreeRect extends PApplet {
+public class EX_QuadTreeRect extends PApplet {
 
     public static void main(String[] args) {
-        PApplet.main(QuadTreeRect.class, args);
+        PApplet.main(EX_QuadTreeRect.class, args);
     }
 
     C_QuadTree_AABB<Rect> quadTree;

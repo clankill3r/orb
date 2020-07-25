@@ -1,14 +1,19 @@
 package orb_examples;
 
-import orb.crust.geom.V2;
+import orb._crust.geom.V2;
 import orb.____inner_core.geom._Vec2;
-import org.problessing.Problessing;
+import processing.core.PApplet;
 import processing.core.PImage;
+import static orb._crust._CSSColors.*;
 
 /**
  * Created by doekewartena on 9/16/15.
  */
-public class CellWalker extends Problessing {
+public class CellWalker extends PApplet {
+
+    public static void main(String[] args) {
+        PApplet.main(CellWalker.class, args);
+    }
 
     PImage img;
 
@@ -157,8 +162,6 @@ public class CellWalker extends Problessing {
     }
 
 
-    public static void main(String[] args) {
-        Problessing.main("CellWalker", args);
-    }
+ 
 
 }

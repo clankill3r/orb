@@ -21,9 +21,6 @@ Examples to fix:
 Dump from old TODO:
 
 ```java
-import java.util.HashMap;
-
-class Dump {
 
     /*
     1. queryClosest in OC_Octree
@@ -43,7 +40,6 @@ class Dump {
     // make the outer core the classes
     // make the mantle specific algorithms like pathfinding, convexhull etc.
     // make the crust what onos shell is now
-    //
 
 
     // ------------------------------------------

@@ -1,23 +1,20 @@
-package  orb_examples.datastructure.excluded;
+package orb_examples;
 
-import nl.doekewartena.onos.util.datastructure.OC_QuadTree;
-import nl.doekewartena.onos.util.datastructure.OS_QuadTreeLine;
-import nl.doekewartena.onos.util.datastructure.OS_QuadTreeRect;
-import org.problessing.Problessing;
-import processing.core.PGraphics;
-
+import processing.core.*;
 import java.util.ArrayList;
+import orb._crust.util.datastructure.C_QuadTree_AABB;
+import static orb._crust._CSSColors.*;
 
 /**
  * Created by doekewartena on 8/23/15.
  */
-public class QuadTreeRect extends Problessing {
+public class QuadTreeRect extends PApplet {
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.QuadTreeRect", args);
+        PApplet.main(QuadTreeRect.class, args);
     }
 
-    OS_QuadTreeRect<Rect> quadTree;
+    C_QuadTree_AABB<Rect> quadTree;
 
     ArrayList<Rect> rects = new ArrayList<>();
 
@@ -39,7 +36,7 @@ public class QuadTreeRect extends Problessing {
     public void setup() {
 
 
-        quadTree = new OS_QuadTreeRect<>(
+        quadTree = new C_QuadTree_AABB<>(
                 l -> l.x1, l -> l.y1, l -> l.x2, l -> l.y2,
                 0, 0, width, height
         );
@@ -100,6 +97,14 @@ public class QuadTreeRect extends Problessing {
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    int mousePressX, mousePressY;
+
+    @Override
+    public void mousePressed() {
+        mousePressX = mouseX;
+        mousePressY = mouseY;
+    }
+
 
     @Override
     public void mouseReleased() {
@@ -119,18 +124,18 @@ public class QuadTreeRect extends Problessing {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public void drawQuadTree(OC_QuadTree<?, ?> tree) {
+    public void drawQuadTree(C_QuadTree_AABB<?> tree) {
         drawQuadTree(tree, g);
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public void drawQuadTree(OC_QuadTree<?, ?> tree, PGraphics pg) {
+    public void drawQuadTree(C_QuadTree_AABB<?> tree, PGraphics pg) {
 
         pg.pushStyle();
         pg.rectMode(CORNERS);
 
-        for (OC_QuadTree q : tree) {
+        for (C_QuadTree_AABB q : tree) {
             if (!q.hasChildren()) {
                 pg.rect((float)q.x1(), (float)q.y1(), (float)q.x2(), (float)q.y2());
             }

@@ -206,7 +206,7 @@ public class IC_Math<T> {
 
 
     public static final float distToSegment(float px, float  py, float lx1, float  ly1, float lx2, float ly2) {
-        return (float) sqrt(distToSegmentSq(px, py, lx1, ly1, lx2, ly2));
+        return sqrt(distToSegmentSq(px, py, lx1, ly1, lx2, ly2));
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -271,7 +271,7 @@ public class IC_Math<T> {
 
     public static final float min(float v1, float v2, float... v) {
 
-        float min = min(v1, v2);
+        float min = Math.min(v1, v2);
 
         for (float val : v) {
             if (val < min) min = val;
@@ -283,7 +283,7 @@ public class IC_Math<T> {
 
     public static final float max(float v1, float v2, float... v) {
 
-        float max = max(v1, v2);
+        float max = Math.max(v1, v2);
 
         for (float val : v) {
             if (val > max) max = val;

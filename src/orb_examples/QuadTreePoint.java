@@ -1,21 +1,21 @@
-package orb_examples;
+package  orb_examples;
 
 
-import orb.crust.geom.V2;
-import orb.crust.util.datastructure.C_QuadTreePoint;
-import orb.outer_core.util.datastructure.OC_QuadTree;
-import org.problessing.Problessing;
+import orb._crust.geom.V2;
+import orb._crust.util.datastructure.C_QuadTreePoint;
+import orb.___outer_core.util.datastructure.OC_QuadTree;
+import processing.core.PApplet;
 import processing.core.PGraphics;
-
 import java.util.ArrayList;
+import static orb._crust._CSSColors.*;
 
 /**
  * Created by doekewartena on 8/23/15.
  */
-public class QuadTreePoint extends Problessing {
+public class QuadTreePoint extends PApplet {
 
     public static void main(String[] args) {
-        Problessing.main("util.datastructure.QuadTreePoint", args);
+        PApplet.main(QuadTreePoint.class, args);
     }
 
 
@@ -149,6 +149,15 @@ public class QuadTreePoint extends Problessing {
         containing.clear();
         intersecting.clear();
         quadTree.queryRadius(containing, intersecting, mouseX, mouseY, radius);
+    }
+
+
+    int mousePressX, mousePressY;
+
+    @Override
+    public void mousePressed() {
+        mousePressX = mouseX;
+        mousePressY = mouseY;
     }
 
     @Override

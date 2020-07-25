@@ -7,7 +7,6 @@ import static orb.____inner_core.IC_Math.*;
  */
 /*
 TODO: -Advanced: if a contour is closed, offset rotate the result and repeat the algorithm? Or something?
-TODO: rename epsilon to dist? (check if it's correct)
 TODO: option with nOfSides instead of dist
 
  */
@@ -17,15 +16,15 @@ public class M_DouglasPeucker {
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    public final static float[][] douglasPeucker(float[][] points, float epsilon) {
-        return douglasPeucker(points, 0, points.length-1, epsilon);
+    public final static float[][] douglasPeucker(float[][] points, float minDist) {
+        return douglasPeucker(points, 0, points.length-1, minDist);
     }
 
     // . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
     // todo HIGH, make end index exclusive
-    public final static float[][] douglasPeucker(float[][] points, int startIndex, int endIndexInc, float epsilon) {
+    public final static float[][] douglasPeucker(float[][] points, int startIndex, int endIndexInc, float minDist) {
         // find point with max dist
         float dMax = 0;
         int index = -1;
@@ -41,10 +40,10 @@ public class M_DouglasPeucker {
         dMax = sqrt(dMax);
 
         // if it's greater we simplify
-        if (dMax > epsilon) {
+        if (dMax > minDist) {
 
-            float[][] resultFront = douglasPeucker(points, startIndex, index, epsilon);
-            float[][] resultBack = douglasPeucker(points, index, endIndexInc, epsilon);
+            float[][] resultFront = douglasPeucker(points, startIndex, index, minDist);
+            float[][] resultBack = douglasPeucker(points, index, endIndexInc, minDist);
 
             // combine
             float[][] result = new float[resultFront.length+resultBack.length][2];
